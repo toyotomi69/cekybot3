@@ -55,7 +55,8 @@ client.on('message', (channel, user, message, self) => {
     if(message == '!zaludcommands') {
         client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn, !mlady, !vtip :)`);
     }
-    if (message.startsWith('!zalud')) {
+    
+    if((message.startsWith('!zalud') && message.includes('!Tvrzení, že')==false)) {
         const num = rollDice();
         var vec = message.substr(6);
         client.say(channel, `Tvrzení, že ${vec}, je na ${num}% správné zaludE`);
@@ -114,20 +115,10 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `${thing}`);
         
     }
-    if(message == '!asdasfadfadgadg') {
+    if(message == '!cas') {
         
-        client.say(channel, `Kristova noho, ono už je ${cas()}`);
+        client.say(channel, `Kristova noho, ono už je ${("5678".toHHMMSS())}`);
         
     }
-     function cas () {
-    var sec_num = parseInt(this, 10); // don't forget the second param
-    var hours   = Math.floor(sec_num / 3600);
-    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-    var seconds = sec_num - (hours * 3600) - (minutes * 60);
-
-    if (hours   < 10) {hours   = "0"+hours;}
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
-    return hours+':'+minutes;
-}
+    
 });
