@@ -114,7 +114,7 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `${thing}`);
         
     }
-    if(message == '!cas') {
+    if(message == '!asdasfadfadgadg') {
         
         client.say(channel, `Kristova noho, ono už je ${cas()}`);
         
