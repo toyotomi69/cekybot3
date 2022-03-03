@@ -95,4 +95,9 @@ client.on('message', (channel, user, message, self) => {
         var jmeno = message.split(" ")[0];
         client.say(channel, `MLADY 🌹 ${jmeno}`);
      }
+    client.on("subscription", function (channel, username, methods ) {
+
+        client.say(channel, `${username} kristova noho, díky za sub` )
+        
+        });
 });
