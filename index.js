@@ -57,7 +57,8 @@ client.on('message', (channel, user, message, self) => {
     }
     if (message.startsWith('!zalud')) {
         const num = rollDice();
-        client.say(channel, `@${user.username} tvoje tvrzení je na  ${num}% správné zaludE`);
+        var vec = message.substr(6);
+        client.say(channel, `Tvrzení že {vec}, je na ${num}% správné zaludE`);
         
       } 
       if (message ==  '!hodnoceni') {
