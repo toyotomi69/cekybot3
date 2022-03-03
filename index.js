@@ -106,4 +106,11 @@ client.on('message', (channel, user, message, self) => {
      //   client.say(channel, username + " kristova noho, dík za resub <3 " )
 
     //});
+    
+    if(message == '!vtip') {
+    const words = ["Servis hudebních nástrojů, dpovědný vedoucí: Ing. Prokop Buben", "Víte jak se jmenuje had, který vypráví vtipy? Hahad", "Víš, jak se kouzelník utírá na záchodě? Normálně – trikem.", "Pepíček dostal k narozeninám granát a je z toho celý pryč.", "Víš, proč nechodí jogurt na procházku? Protože se bojí, že byl byl prošlý.", "Jak se nazývá koronavirusová liška? Liška Byst-rouška", "Víte, proč voda nežije? Protože skapala!", "Víte, jaký je rozdíl mezi tavičem a babičkou? Tavič taví železo, zatímco babička, ta ví všechno.", "Příjde kůn do banky a říká: „Dobrý den, chtěl bych si založit koňto.“", 
+                   "Ta ironie, když se z veganství stane masová záležitost.", "„Proč je ti tak nevolno?“ „Bo loňské špagety.“", "Vletí moucha do hospody a táže se: „Promiňte, je tahle stolice volná?“", "Dva zloději ukradli kalendář. Každý dostal šest měsíců.", "„Pane průvodčí, jede ten vlak na Písek?“ „Ne, na naftu!“", "Přijde Hertz do baru a říká: „Jedno pivo, ať to kmitá!“", "„Jaký je váš nejoblíbenější typ fotoaparátu, pane Slepičko?“ „Ko-ko-Kodak!“", "Víte, jak se smějou dřevorubci? Řežou se smíchy.", "„Máš dneska čas?“ „Ne, jdu si koupit brýle.“ „A potom?“ „Potom uvidím.“", "„Chcete slyšet vtip o České poště?“ „Jojo, klidně.“ „Tak dobře, ale nevím, jestli vám to dojde...“"];
+       client.say(channel, words[Math.floor(Math.random() * words.length)]));
+        
+    }
 });
