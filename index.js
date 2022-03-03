@@ -98,7 +98,7 @@ client.on('message', (channel, user, message, self) => {
      }
     client.on("subscription", function (channel, username, methods ) {
 
-        client.say(channel, `${username} kristova noho, díky za sub` )
-        
-        });
+        client.say(channel, username + "kristova noho, dík za sub" )
+
+    });
 });
