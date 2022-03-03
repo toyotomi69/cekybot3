@@ -103,7 +103,7 @@ client.on('message', (channel, user, message, self) => {
     });
     client.on("resub", function (channel, username, months, message, userstate, methods) {
 
-        client.say(channel, username + " kristova noho, dík za " + months + " měsíců <3 " )
+        client.say(channel, username + " kristova noho, dík za resub <3 " )
 
     });
 });
