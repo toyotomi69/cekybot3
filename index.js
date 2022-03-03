@@ -17,9 +17,9 @@ const options = {
 const client = new tmi.Client(options);
 client.connect().catch(console.error);
 
-client.on('connected', () => {
-    client.say(channel, `${username} nojo zmrde už jsem tady!`);
-});
+//client.on('connected', () => {
+ //   client.say(channel, `${username} nojo zmrde už jsem tady!`);
+//});
 
 client.on('message', (channel, user, message, self) => {
     if(self) return;
