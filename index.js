@@ -73,7 +73,7 @@ client.on('message', (channel, user, message, self) => {
       }  
       if (message.includes(" !gn")) {
         var jmeno = message.split(" ")[0];
-        client.say(channel, `${jmeno} zaludBedge Dobrou noc 🌃`);
+        client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`);
         
       } 
     function rollDice () {
@@ -116,8 +116,9 @@ client.on('message', (channel, user, message, self) => {
         
     }
     if(message == '!cas') {
-        
-        client.say(channel, `Kristova noho, ono už je ${("5678".toHHMMSS())}`);
+        var date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
+        var options = { timeZone: 'UTC', timeZoneName: 'short' };
+        client.say(channel, `Kristova noho🦶, ono už je ${(date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }))}`);
         
     }
     
