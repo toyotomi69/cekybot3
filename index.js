@@ -101,4 +101,9 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, username + "kristova noho, dík za sub" )
 
     });
+    client.on("resub", function (channel, username, months, message, userstate, methods) {
+
+        client.say(channel, username + " kristova noho, dík za " + months + " měsíců <3 " )
+
+    });
 });
