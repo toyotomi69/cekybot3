@@ -115,7 +115,7 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `${thing}`);
         
     }
-    if(message == '!cas') {
+    if(message == '!asdasdasdasdad') {
         var date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
         var options = { timeZone: 'UTC', timeZoneName: 'short' };
         client.say(channel, `Kristova noho🦶, ono už je ${(date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }))}`);
