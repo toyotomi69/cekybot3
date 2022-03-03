@@ -53,7 +53,7 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `@${user.username} zaludE`);
     }
     if(message == '!zaludcommands') {
-        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn, !mlady :)`);
+        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn, !mlady, !vtip :)`);
     }
     if (message.startsWith('!zalud')) {
         const num = rollDice();
