@@ -116,19 +116,18 @@ client.on('message', (channel, user, message, self) => {
     }
     if(message == '!cas') {
         
-        client.say(channel, `Kristova noho, ono už je ${currentTime()}`);
+        client.say(channel, `Kristova noho, ono už je ${cas()}`);
         
     }
-    function currentTime() {
-      let date = new Date(); 
-      let hh = date.getHours();
-      let mm = date.getMinutes();
-       hh = (hh < 10) ? "0" + hh : hh;
-       mm = (mm < 10) ? "0" + mm : mm;
+     function cas () {
+    var sec_num = parseInt(this, 10); // don't forget the second param
+    var hours   = Math.floor(sec_num / 3600);
+    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+    var seconds = sec_num - (hours * 3600) - (minutes * 60);
 
-       let time = hh + ":" + mm + " " ;
-
-       
-      let t = setTimeout(function(){ currentTime() }, 1000);
-    }
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return hours+':'+minutes;
+}
 });
