@@ -124,6 +124,7 @@ const commands = {
 			let time = `${hrs}:${mins}`
 			// log the time in console
 			console.log(time)
+			return time
 		}
 		client.say(channel, `Kristova noho🦶, ono už je ${clock()}`)
 	},
