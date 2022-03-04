@@ -56,12 +56,12 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, <jmeno> !gn, <jmeno> !mlady, !vtip, !cas :)`);
     }
     
-    //if((message.startsWith('!zalud') && message.includes('Tvrzení, že')==false)) {
-    //    const num = rollDice();
-    //    var vec = message.substr(6);
-    //    client.say(channel, `Tvrzení, že ${vec}, je na ${num}% správné zaludE`);
+    if((message.startsWith('!dfdfd') && message.includes('Tvrzení, že')==false)) {
+        const num = rollDice();
+        var vec = message.substr(6);
+        client.say(channel, `Tvrzení, že ${vec}, je na ${num}% správné zaludE`);
         
-    //  } 
+      } 
       if (message ==  '!hodnoceni') {
         const num = hraxd();
         client.say(channel, `Tato hra je ${num}/10 zalud5Head`);
@@ -118,7 +118,7 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `${thing}`);
         
     }
-    if(message == '!cas') {
+    if(message == '!sdsdsd') {
         var currentdate = new Date(); 
                 var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
                 Date.prototype.timeNow = function () {
