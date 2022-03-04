@@ -53,7 +53,7 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `@${user.username} zaludE`);
     }
     if(message == '!zaludcommands') {
-        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, <jmeno> !gn, <jmeno> !mlady, !vtip, !cas, !kdoudelalcekybota :)`);
+        client.say(channel, `!zalud (byl overused takže tu není), !hodnoceni, !madmong, !velkyagrLULE, <jmeno> !gn, <jmeno> !mlady, !vtip, !cas, !kdoudelalcekybota :)`);
     }
     
     if((message.startsWith('!dfdfd') && message.includes('Tvrzení, že')==false)) {
