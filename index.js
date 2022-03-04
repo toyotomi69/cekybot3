@@ -111,7 +111,7 @@ const commands = {
 	zaludcommands: ({ client, channel }) => {
 		client.say(
 			channel,
-			`!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas :)`
+			`!zalud <tvrzení>, !hodnoceni, !madmonq, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas, !kdoudelalcekybota :)`
 		)
 	},
 	// zalud: ({ client, channel, rest }) => {
@@ -125,7 +125,7 @@ const commands = {
 	madmonq: ({ client, channel }) => {
 		client.say(
 			channel,
-			`zaludE Čau frajeři, tady Žalud 🌰, dneska jsem v lese 🌳🌳, a jsem teda zase zpátky, tentokrát s Madmongama FeelsAmazingMan 💊 madmonq.gg/agraelus`
+			`zaludE Čau frajeři, tady Žalud 🌰, dneska jsem v lese 🌳🌳, a jsem teda zase zpátky, tentokrát s Madmonqama FeelsAmazingMan 💊 madmonq.gg/agraelus`
 		)
 	},
 	velkyagrLULE: ({ client, channel }) => {
