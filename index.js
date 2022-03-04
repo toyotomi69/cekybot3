@@ -97,6 +97,9 @@ client.on('message', (channel, user, message, self) => {
         var jmeno = message.split(" ")[0];
         client.say(channel, `MLADY 🌹 ${jmeno}`);
      }
+    if(message == '@cekybot dankHug') {
+        client.say(channel, `@${user.username} dankHug`);
+     }
     client.on("subscription", function (channel, username, methods ) {
 
         client.say(channel, username + "kristova noho, dík za sub" )
@@ -116,16 +119,12 @@ client.on('message', (channel, user, message, self) => {
         
     }
     if(message == '!cas') {
-        let clock = () => {
-          let date = new Date();
-          let hrs = date.getHours();
-          let mins = date.getMinutes();
-          let secs = date.getSeconds();
-          let time = `${hrs}:${mins}`
-          // log the time in console
-          console.log(time)
-        }
-        client.say(channel, `Kristova noho🦶, ono už je ${clock()}`);
+        var currentdate = new Date(); 
+                var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
+                Date.prototype.timeNow = function () {
+                    return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+               }
+        client.say(channel, `Kristova noho🦶, ono už je ${datetime}`);
         
     }
     
