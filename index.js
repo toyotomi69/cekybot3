@@ -53,7 +53,7 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `@${user.username} zaludE`);
     }
     if(message == '!zaludcommands') {
-        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, <jmeno> !gn, <jmeno> !mlady, !vtip, !cas :)`);
+        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, <jmeno> !gn, <jmeno> !mlady, !vtip, !cas, !kdoudelalcekybota :)`);
     }
     
     if((message.startsWith('!dfdfd') && message.includes('Tvrzení, že')==false)) {
@@ -128,5 +128,9 @@ client.on('message', (channel, user, message, self) => {
                var res = datetimet.substring(0, 5);
         client.say(channel, `Kristova noho🦶, ono už je ${res}`); 
     }
+    if(message == '!kdoudelalcekybota') {
+        client.say(channel, `@${user.username} ctrlv.cz/NeXE`);  
+    }
+    
     
 });
