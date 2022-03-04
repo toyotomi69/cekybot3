@@ -56,7 +56,7 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn, !mlady, !vtip :)`);
     }
     
-    if((message.startsWith('!zalud') && message.includes('!Tvrzení, že')==false)) {
+    if((message.startsWith('!zalud') && message.includes('Tvrzení, že')==false)) {
         const num = rollDice();
         var vec = message.substr(6);
         client.say(channel, `Tvrzení, že ${vec}, je na ${num}% správné zaludE`);
@@ -115,10 +115,17 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `${thing}`);
         
     }
-    if(message == '!asdasdasdasdad') {
-        var date = new Date(Date.UTC(2012, 11, 20, 3, 0, 0));
-        var options = { timeZone: 'UTC', timeZoneName: 'short' };
-        client.say(channel, `Kristova noho🦶, ono už je ${(date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }))}`);
+    if(message == '!cas') {
+        let clock = () => {
+          let date = new Date();
+          let hrs = date.getHours();
+          let mins = date.getMinutes();
+          let secs = date.getSeconds();
+          let time = `${hrs}:${mins}`
+          // log the time in console
+          console.log(time)
+        }
+        client.say(channel, `Kristova noho🦶, ono už je ${clock()}`);
         
     }
     
