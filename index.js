@@ -131,13 +131,13 @@ client.on('message', (channel, user, message, self) => {
           },
     formatter = new Intl.DateTimeFormat([], options);
         const currentdate = formatter.format(new Date());
-                //var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
+                
                 Date.prototype.timeNow = function () {
                     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
                }
                var datetimet =  new Date().timeNow();
                var res = datetimet.substring(0, 5);
-        client.say(channel, `Kristova noho, ono už je ${res}`); 
+        client.say(channel, `kristova noho🦶, ono už je ${res}`); 
     }
     if(message == '!kdoudelalcekybota') {
         client.say(channel, `@${user.username} ctrlv.cz/NeXE`);  
