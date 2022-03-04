@@ -80,7 +80,7 @@ const jokes = [
 ]
 
 const commands = {
-	zaludcommands: ({ client }) => {
+	zaludcommands: ({ client, channel }) => {
 		client.say(
 			channel,
 			`!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas :)`
