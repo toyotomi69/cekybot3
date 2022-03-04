@@ -53,15 +53,15 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `@${user.username} zaludE`);
     }
     if(message == '!zaludcommands') {
-        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn, !mlady, !vtip :)`);
+        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn, !mlady, !vtip, !cas :)`);
     }
     
-    if((message.startsWith('!zalud') && message.includes('Tvrzení, že')==false)) {
-        const num = rollDice();
-        var vec = message.substr(6);
-        client.say(channel, `Tvrzení, že ${vec}, je na ${num}% správné zaludE`);
+    //if((message.startsWith('!zalud') && message.includes('Tvrzení, že')==false)) {
+    //    const num = rollDice();
+    //    var vec = message.substr(6);
+    //    client.say(channel, `Tvrzení, že ${vec}, je na ${num}% správné zaludE`);
         
-      } 
+    //  } 
       if (message ==  '!hodnoceni') {
         const num = hraxd();
         client.say(channel, `Tato hra je ${num}/10 zalud5Head`);
