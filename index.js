@@ -89,7 +89,7 @@ const jokes = [
 
 const commands = {
     'zaludcommands': ({ client }) => {
-        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip :)`)
+        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas :)`)
     }
     'zalud': ({ client, channel, rest }) => {
         const num = rollDice()
@@ -117,6 +117,18 @@ const commands = {
     }
     'vtip': ({ client, channel }) => {
         client.say(channel, getRandomItemFromArray(jokes))
+    },
+    'cas': ({ client, channel }) => {
+        const clock = () => {
+            let date = new Date();
+            let hrs = date.getHours();
+            let mins = date.getMinutes();
+            let secs = date.getSeconds();
+            let time = `${hrs}:${mins}`
+            // log the time in console
+            console.log(time)
+          }
+        client.say(channel, `Kristova noho🦶, ono už je ${clock()}`);
     }
 }
 
