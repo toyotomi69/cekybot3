@@ -124,7 +124,9 @@ client.on('message', (channel, user, message, self) => {
                 Date.prototype.timeNow = function () {
                     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
                }
-        client.say(channel, `Kristova noho🦶, ono už je ${datetime}`);
+               var datetimet =  new Date().timeNow();
+               var res = datetimet.substring(0, 5);
+        client.say(channel, `Kristova noho, ono už je ${res}.`);
         
     }
     
