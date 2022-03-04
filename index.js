@@ -53,7 +53,7 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `@${user.username} zaludE`);
     }
     if(message == '!zaludcommands') {
-        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, !gn, !mlady, !vtip, !cas :)`);
+        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, <jmeno> !gn, <jmeno> !mlady, !vtip, !cas :)`);
     }
     
     //if((message.startsWith('!zalud') && message.includes('Tvrzení, že')==false)) {
@@ -122,7 +122,7 @@ client.on('message', (channel, user, message, self) => {
         var currentdate = new Date(); 
                 var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
                 Date.prototype.timeNow = function () {
-                    return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+                    return ((this.getHours() < 10)?"0":"")+1 + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
                }
                var datetimet =  new Date().timeNow();
                var res = datetimet.substring(0, 5);
