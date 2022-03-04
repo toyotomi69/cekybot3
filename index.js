@@ -160,7 +160,7 @@ function tagsBot(message) {
 }
 
 function getRandomItemFromArray(array) {
-	const randomIndex = Math.floow(Math.random() * things.length)
+	const randomIndex = Math.floor(Math.random() * array.length)
 	return array[randomIndex]
 }
 
