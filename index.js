@@ -118,16 +118,15 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `${thing}`);
         
     }
-    if(message == '!sdsdsd') {
+    if(message == '!cas') {
         var currentdate = new Date(); 
                 var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
                 Date.prototype.timeNow = function () {
-                    return ((this.getHours() < 10)?"0":"")+1 + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+                    return ((this.getHours()+1 < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
                }
                var datetimet =  new Date().timeNow();
                var res = datetimet.substring(0, 5);
-        client.say(channel, `Kristova noho, ono už je ${res}.`);
-        
+        client.say(channel, `Kristova noho🦶, ono už je ${res}`); 
     }
     
 });
