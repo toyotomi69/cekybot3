@@ -124,7 +124,7 @@ client.on('message', (channel, user, message, self) => {
         currentdate.setTimezone("Europe/Prague");
                 var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
                 Date.prototype.timeNow = function () {
-                    return ((this.getHours()+1 < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+                    return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
                }
                var datetimet =  new Date().timeNow();
                var res = datetimet.substring(0, 5);
