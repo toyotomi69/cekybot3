@@ -44,6 +44,9 @@ const dateFormatter = new Intl.DateTimeFormat([], dateFormatterOptions)
 client.on('subscription', function (channel, username, methods) {
 	client.say(channel, username + ' kristova noho, dík za sub <3')
 })
+client.on('subscription', function (channel, username, methods) {
+	client.say(channel, username + ' kristova noho, dík za sub <3')
+})
 
 client.on('message', (channel, user, message, self) => {
 	if (self) return
@@ -191,7 +194,7 @@ const commands = {
 	},
 	kdoudelalcekybota: {
 		fnc: ({ client, channel, user }) => {
-			client.say(channel, `@${user.username} ctrlv.cz/NeXE`)
+			client.say(channel, `@${user.username} ctrlv.cz/NeXE s pomocí @trollyal a @sidlo01`)
 		},
 	},
 }
