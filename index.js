@@ -42,7 +42,7 @@ const dateFormatter = new Intl.DateTimeFormat([], dateFormatterOptions)
 //});
 
 client.on('subscription', function (channel, username, methods) {
-	client.say(channel, username + 'kristova noho, dík za sub')
+	client.say(channel, username + ' kristova noho, dík za sub <3')
 })
 
 client.on('message', (channel, user, message, self) => {
