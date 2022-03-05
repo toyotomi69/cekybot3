@@ -110,8 +110,8 @@ client.on('message', (channel, user, message, self) => {
                     'Kdy je muž NAIVNÍ? Při souloži - když je NA I V NÍ.','Víte, jak si z černocha vytvoříte léčivou bylinu? Uříznete mu ho a máte ČERNEJ BEZ.','Víte proč ženy během milostné předehry ani nemrknou? Protože to nestihnou.','Nanosekunda = dámské přirození na čichovém orgánu?','Pes: Já svému páníčkovi jím úkoly. Já ty jeho úkoly žeru.'];
         var thing = things[Math.floor(Math.random()*things.length)];
         client.say(channel, `${thing}`);
+        setTimeout(() => {client.say(channel, ``)}, 600000);
     }
-setInterval(vtipXD,600000);
     
     if(message == '!cas') {
         let options = {
