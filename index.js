@@ -128,7 +128,7 @@ const commands = {
 			const num = rollDice()
 			client.say(channel, `Tvrzení, že ${rest}, je na ${num}% správné zaludE`)
 		},
-		cooldown: 1800,
+		cooldown: 600,
 	},
 	hodnoceni: {
 		fnc: ({ client, channel }) => {
@@ -166,7 +166,7 @@ const commands = {
 		fnc: ({ client, channel }) => {
 			client.say(channel, getRandomItemFromArray(jokes))
 		},
-		cooldown: 600,
+		cooldown: 300,
 	},
 	cas: {
 		fnc: ({ client, channel }) => {
