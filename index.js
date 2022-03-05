@@ -30,19 +30,8 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `@${user.username} zaludWeird`);
     }
 
-    if(message == '@cekybot ahoj') {
-        client.say(channel, `@${user.username}, čau! zaludKamo`);
-    }
-    if(message == '@cekybot čau') {
-        client.say(channel, `@${user.username}, čau! zaludKamo`);
-    }
-    if(message == '@cekybot čus') {
-        client.say(channel, `@${user.username}, čau! zaludKamo`);
-    }
-    if(message == '@cekybot zdar') {
-        client.say(channel, `@${user.username}, čau! zaludKamo`);
-    }
-    if(message == '@cekybot nazdar') {
+    if(message.includes('@cekybot ahoj'||'@cekybot čus'||'@cekybot čau'||'@cekybot zdar'||'@cekybot nazdar'||'@cekybot ahojda'||'@cekybot DatSheffy /')) 
+    {
         client.say(channel, `@${user.username}, čau! zaludKamo`);
     }
     if(message == '@cekybot zabij se') {
@@ -53,13 +42,14 @@ client.on('message', (channel, user, message, self) => {
         client.say(channel, `@${user.username} zaludE`);
     }
     if(message == '!zaludcommands') {
-        client.say(channel, `!zalud (byl overused takže tu není), !hodnoceni, !madmong, !velkyagrLULE, <jmeno> !gn, <jmeno> !mlady, !vtip, !cas, !kdoudelalcekybota :)`);
+        client.say(channel, `!zalud, !hodnoceni, !madmong, !velkyagrLULE, <jmeno> !gn, <jmeno> !mlady, !vtip, !cas, !kdoudelalcekybota :) , některé funkce lze použít jen jednou za určený časový usek`);
     }
     
-    if((message.startsWith('!dfdfd') && message.includes('Tvrzení, že')==false)) {
+    if((message.startsWith('!zalud') && message.includes('Tvrzení, že')==false)) {
         const num = rollDice();
         var vec = message.substr(6);
         client.say(channel, `Tvrzení, že ${vec}, je na ${num}% správné zaludE`);
+        setTimeout(() => {client.say(channel, ``)}, 200000);
         
       } 
       if (message ==  '!hodnoceni') {
@@ -102,7 +92,7 @@ client.on('message', (channel, user, message, self) => {
      }
     client.on("subscription", function (channel, username, methods ) {
 
-        client.say(channel, username + "kristova noho, dík za sub" )
+        client.say(channel, username + " kristova noho, dík za sub" )
 
     });
     //client.on("resub", function (channel, username, months, message, userstate, methods) {
@@ -112,13 +102,17 @@ client.on('message', (channel, user, message, self) => {
     //});
     
     if(message == '!vtip') {
+    vtipXD();
+    }
+        function vtipXD(){
         var things =['Servis hudebních nástrojů, dpovědný vedoucí: Ing. Prokop Buben', 'Víte jak se jmenuje had, který vypráví vtipy? Hahad', 'Víš, jak se kouzelník utírá na záchodě? Normálně – trikem.', 'Pepíček dostal k narozeninám granát a je z toho celý pryč.', 'Víš, proč nechodí jogurt na procházku? Protože se bojí, že byl byl prošlý.', 'Jak se nazývá koronavirusová liška? Liška Byst-rouška', 'Víte, proč voda nežije? Protože skapala!', 'Víte, jaký je rozdíl mezi tavičem a babičkou? Tavič taví železo, zatímco babička, ta ví všechno.', 'Příjde kůn do banky a říká: „Dobrý den, chtěl bych si založit koňto.“', 
                    'Ta ironie, když se z veganství stane masová záležitost.', '„Proč je ti tak nevolno?“ „Bo loňské špagety.“', 'Vletí moucha do hospody a táže se: „Promiňte, je tahle stolice volná?“', 'Dva zloději ukradli kalendář. Každý dostal šest měsíců.', '„Pane průvodčí, jede ten vlak na Písek?“ „Ne, na naftu!“', 'Přijde Hertz do baru a říká: „Jedno pivo, ať to kmitá!“', '„Jaký je váš nejoblíbenější typ fotoaparátu, pane Slepičko?“ „Ko-ko-Kodak!“', 'Víte, jak se smějou dřevorubci? Řežou se smíchy.', '„Máš dneska čas?“ „Ne, jdu si koupit brýle.“ „A potom?“ „Potom uvidím.“', '„Chcete slyšet vtip o České poště?“ „Jojo, klidně.“ „Tak dobře, ale nevím, jestli vám to dojde...“',
                     'Kdy je muž NAIVNÍ? Při souloži - když je NA I V NÍ.','Víte, jak si z černocha vytvoříte léčivou bylinu? Uříznete mu ho a máte ČERNEJ BEZ.','Víte proč ženy během milostné předehry ani nemrknou? Protože to nestihnou.','Nanosekunda = dámské přirození na čichovém orgánu?','Pes: Já svému páníčkovi jím úkoly. Já ty jeho úkoly žeru.'];
         var thing = things[Math.floor(Math.random()*things.length)];
         client.say(channel, `${thing}`);
-        
     }
+setInterval(vtipXD,600000);
+    
     if(message == '!cas') {
         let options = {
             timeZone: 'Europe/Prague',
