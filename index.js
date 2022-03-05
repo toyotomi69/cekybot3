@@ -113,50 +113,73 @@ const jokes = [
 	'Proč ženy během milostné předehry ani nemrknou? Protože to nestihnou.',
 ]
 
+// base cooldown is 30 seconds, if specific needed add 'cooldown: <!SECONDS!>' to the command object
 const commands = {
-	zaludcommands: ({ client, channel }) => {
-		client.say(
-			channel,
-			`!zalud <tvrzení>, !hodnoceni, !madmonq, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas, !kdoudelalcekybota :)`
-		)
+	zaludcommands: {
+		fnc: ({ client, channel }) => {
+			client.say(
+				channel,
+				`!zalud <tvrzení>, !hodnoceni, !madmonq, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas, !kdoudelalcekybota :)`
+			)
+		},
 	},
-	// zalud: ({ client, channel, rest }) => {
-	// 	const num = rollDice()
-	// 	client.say(channel, `Tvrzení, že ${rest}, je na ${num}% správné zaludE`)
-	// },
-	hodnoceni: ({ client, channel }) => {
-		const num = hraxd()
-		client.say(channel, `Tato hra je ${num}/10 zalud5Head`)
+	zalud: {
+		fnc: ({ client, channel, rest }) => {
+			const num = rollDice()
+			client.say(channel, `Tvrzení, že ${rest}, je na ${num}% správné zaludE`)
+		},
+		cooldown: 1800,
 	},
-	madmonq: ({ client, channel }) => {
-		client.say(
-			channel,
-			`zaludE Čau frajeři, tady Žalud 🌰, dneska jsem v lese 🌳🌳, a jsem teda zase zpátky, tentokrát s Madmonqama FeelsAmazingMan 💊 madmonq.gg/agraelus`
-		)
+	hodnoceni: {
+		fnc: ({ client, channel }) => {
+			const num = hraxd()
+			client.say(channel, `Tato hra je ${num}/10 zalud5Head`)
+		},
 	},
-	velkyagrLULE: ({ client, channel }) => {
-		client.say(channel, `agr1 agr2`)
-		setTimeout(() => {
-			client.say(channel, `agr3 agr4`)
-		}, 2500)
+	madmonq: {
+		fnc: ({ client, channel }) => {
+			client.say(
+				channel,
+				`zaludE Čau frajeři, tady Žalud 🌰, dneska jsem v lese 🌳🌳, a jsem teda zase zpátky, tentokrát s Madmonqama FeelsAmazingMan 💊 madmonq.gg/agraelus`
+			)
+		},
 	},
-	gn: ({ client, channel, rest }) => {
-		client.say(channel, `${rest} zaludBedge Dobrou noc 🌃`)
+	velkyagrLULE: {
+		fnc: ({ client, channel }) => {
+			client.say(channel, `agr1 agr2`)
+			setTimeout(() => {
+				client.say(channel, `agr3 agr4`)
+			}, 2000)
+		},
 	},
-	mlady: ({ client, channel, rest }) => {
-		client.say(channel, `MLADY 🌹 ${rest}`)
+	gn: {
+		fnc: ({ client, channel, rest }) => {
+			client.say(channel, `${rest} zaludBedge Dobrou noc 🌃`)
+		},
 	},
-	vtip: ({ client, channel }) => {
-		client.say(channel, getRandomItemFromArray(jokes))
+	mlady: {
+		fnc: ({ client, channel, rest }) => {
+			client.say(channel, `MLADY 🌹 ${rest}`)
+		},
 	},
-	cas: ({ client, channel }) => {
-		const currentdate = dateFormatter.format(new Date())
-		const datetime = new Date().timeNow(false)
+	vtip: {
+		fnc: ({ client, channel }) => {
+			client.say(channel, getRandomItemFromArray(jokes))
+		},
+		cooldown: 600,
+	},
+	cas: {
+		fnc: ({ client, channel }) => {
+			const currentdate = dateFormatter.format(new Date())
+			const datetime = new Date().timeNow(false)
 
-		client.say(channel, `kristova noho🦶, ono už je ${datetime}`)
+			client.say(channel, `Kristova noho🦶, ono už je ${datetime}`)
+		},
 	},
-	kdoudelalcekybota: ({ client, channel, user }) => {
-		client.say(channel, `@${user.username} ctrlv.cz/NeXE`)
+	kdoudelalcekybota: {
+		fnc: ({ client, channel, user }) => {
+			client.say(channel, `@${user.username} ctrlv.cz/NeXE`)
+		},
 	},
 }
 
@@ -205,7 +228,26 @@ function executeCommand(command, user, client, channel) {
 	const commandName = tokens[0].substr(1)
 	const rest = tokens.slice(1).join(' ')
 
-	if (!!commands[commandName]) {
-		commands[commandName]({ user, client, channel, rest })
-	}
+	// check if command and it's exec fnc is defined
+	if (!commands[commandName] || !commands[commandName].fnc) return
+
+	// check if command is off cooldown
+	if (!!cooldownMap[commandName]) return
+
+	// define cooldown (default 30 seconds)
+	const cd = (commands[commandName].cooldown || 30) * 1000
+
+	// execute command function
+	commands[commandName].fnc({ user, client, channel, rest })
+
+	// set command on cooldown
+	cooldownMap[commandName] = true
+
+	// setup timeout to put command off cooldown after specified time
+	setTimeout(() => {
+		cooldownMap[commandName] = false
+	}, cd)
 }
+
+// map for command cooldowns, leave empty!
+const cooldownMap = {}
