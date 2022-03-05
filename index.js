@@ -105,6 +105,12 @@ const jokes = [
 	'Víte, jak se smějou dřevorubci? Řežou se smíchy.',
 	'„Máš dneska čas?“ „Ne, jdu si koupit brýle.“ „A potom?“ „Potom uvidím.“',
 	'„Chcete slyšet vtip o České poště?“ „Jojo, klidně.“ „Tak dobře, ale nevím, jestli vám to dojde...“',
+	'Víte, kdy je muž naivní? Při sexu – jedná se totiž o situaci, při které je na i v ní.',
+	'Nanosekunda = dámské přirození na čichovém orgánu?',
+	'Když se natáčel Kameňák, bylo na place zakázáno kouřit… A když už, tak JENOM TROŠKU.',
+	'Kdy je muž NAIVNÍ? Při souloži - když je NA I V NÍ.',
+	'Víte, jak si z černocha vytvoříte léčivou bylinu? Uříznete mu ho a máte ČERNEJ BEZ. cmonBruh',
+	'Proč ženy během milostné předehry ani nemrknou? Protože to nestihnou.',
 ]
 
 const commands = {
