@@ -79,6 +79,16 @@ client.on('message', (channel, user, message, self) => {
 		if (message.includes('žalud')) {
 			client.say(channel, `@${username} zaludWeird`)
 		}
+		if (message.includes(" !mlady")) {
+			var jmeno = message.split(" ")[0];
+			client.say(channel, `MLADY 🌹 ${jmeno}`);
+		     }
+		if (message.includes(" !gn")) {
+			var jmeno = message.split(" ")[0];
+			client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`);
+		}
+        
+      } 
 	} catch (err) {
 		console.log(err)
 	}
@@ -251,14 +261,6 @@ function executeCommand(command, user, client, channel) {
 		cooldownMap[commandName] = false
 	}, cd)
 }
-if (message.includes(" !mlady")) {
-        var jmeno = message.split(" ")[0];
-        client.say(channel, `MLADY 🌹 ${jmeno}`);
-     }
-if (message.includes(" !gn")) {
-        var jmeno = message.split(" ")[0];
-        client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`);
-        
-      } 
+
 // map for command cooldowns, leave empty!
 const cooldownMap = {}
