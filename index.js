@@ -170,10 +170,12 @@ const commands = {
 	},
 	cas: {
 		fnc: ({ client, channel }) => {
-			const currentdate = dateFormatter.format(new Date())
-			const datetime = new Date().timeNow(false)
-
-			client.say(channel, `Kristova noho🦶, ono už je ${datetime}`)
+			Date.prototype.timeNow = function () {
+			    return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+		       }
+		       var datetimet =  new Date().timeNow();
+		       var res = datetimet.substring(0, 5);
+        client.say(channel, `Kristova noho, ono už je ${res}`); 
 		},
 	},
 	kdoudelalcekybota: {
