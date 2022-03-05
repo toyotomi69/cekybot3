@@ -178,6 +178,16 @@ const commands = {
         client.say(channel, `Kristova noho, ono už je ${res}`); 
 		},
 	},
+	čas: {
+		fnc: ({ client, channel }) => {
+			Date.prototype.timeNow = function () {
+			    return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+		       }
+		       var datetimet =  new Date().timeNow();
+		       var res = datetimet.substring(0, 5);
+        client.say(channel, `Kristova noho, ono už je ${res}`); 
+		},
+	},
 	kdoudelalcekybota: {
 		fnc: ({ client, channel, user }) => {
 			client.say(channel, `@${user.username} ctrlv.cz/NeXE`)
