@@ -152,16 +152,7 @@ const commands = {
 			}, 2000)
 		},
 	},
-	gn: {
-		fnc: ({ client, channel, rest }) => {
-			client.say(channel, `${rest} zaludBedge Dobrou noc 🌃`)
-		},
-	},
-	mlady: {
-		fnc: ({ client, channel, rest }) => {
-			client.say(channel, `MLADY 🌹 ${rest}`)
-		},
-	},
+	
 	vtip: {
 		fnc: ({ client, channel }) => {
 			client.say(channel, getRandomItemFromArray(jokes))
@@ -260,6 +251,14 @@ function executeCommand(command, user, client, channel) {
 		cooldownMap[commandName] = false
 	}, cd)
 }
-
+if (message.includes(" !mlady")) {
+        var jmeno = message.split(" ")[0];
+        client.say(channel, `MLADY 🌹 ${jmeno}`);
+     }
+if (message.includes(" !gn")) {
+        var jmeno = message.split(" ")[0];
+        client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`);
+        
+      } 
 // map for command cooldowns, leave empty!
 const cooldownMap = {}
