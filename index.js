@@ -86,7 +86,7 @@ client.on('message', (channel, user, message, self) => {
 		if (message.includes(" !gn")) {
 			var jmeno = message.split(" ")[0];
 			client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`);
-		}
+		
         
       } 
 	} catch (err) {
