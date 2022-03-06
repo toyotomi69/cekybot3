@@ -108,7 +108,7 @@ client.on('message', (channel, user, message, self) => {
         
       } 
 	} catch (err) {
-		console.log(err)
+		console.log(err) 
 	}
 })
 
