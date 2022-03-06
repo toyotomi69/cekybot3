@@ -226,7 +226,7 @@ const commands = {
 const messageCategoriesMatcher = {
 	greeting: /(ahoj)|(čau)|(čus)|(zdar)|(nazdar)/,
 	offensive: /(zabij se)|(mrdko)|(chc[í|i]pni)/,
-	hug: /(dankHug)/,
+	hug: /(dankHug)|(, dankHug)/,
 }
 
 const responseDictionary = {
