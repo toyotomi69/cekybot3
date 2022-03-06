@@ -157,6 +157,14 @@ const commands = {
 			)
 		},
 	},
+	madmong: {
+		fnc: ({ client, channel }) => {
+			client.say(
+				channel,
+				`zaludE Čau frajeři, tady Žalud 🌰, dneska jsem v lese 🌳🌳, a jsem teda zase zpátky, tentokrát s Madmonqama FeelsAmazingMan 💊 madmonq.gg/agraelus`
+			)
+		},
+	},
 	velkyagrLULE: {
 		fnc: ({ client, channel }) => {
 			client.say(channel, `agr1 agr2`)
