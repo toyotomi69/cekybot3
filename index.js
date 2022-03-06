@@ -86,6 +86,21 @@ client.on('message', (channel, user, message, self) => {
 			var jmeno = message.split(" ")[0];
 			client.say(channel, `MLADY 🌹 ${jmeno}`);
 		     }
+		if (message == '!cojezaden') {
+					(function() {
+		    var days = ['Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota','Neděle'];
+
+		    
+		    Date.prototype.getDayName = function() {
+			return days[ this.getDay() ];
+		    };
+		})();
+
+		var now = new Date();
+
+		var day = now.getDayName();
+			client.say(channel, `Dneska je ${day} :)`)
+		}
 		if (message.includes(" !gn")) {
 			var jmeno = message.split(" ")[0];
 			client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`);
