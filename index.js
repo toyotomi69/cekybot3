@@ -88,7 +88,7 @@ client.on('message', (channel, user, message, self) => {
 		     }
 		if (message == '!cojezaden') {
 					(function() {
-		    var days = ['Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota','Neděle'];
+		    var days = ['Neděle','Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota'];
 
 		    
 		    Date.prototype.getDayName = function() {
