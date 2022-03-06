@@ -218,7 +218,7 @@ const commands = {
 	},
 	kdoudelalcekybota: {
 		fnc: ({ client, channel, user }) => {
-			client.say(channel, `@${user.username} ctrlv.cz/NeXE toyotomi s @trollyal a @sidlo01`)
+			client.say(channel, `@${user.username} ctrlv.cz/NeXE toyotomi s @trollyal agrLULE`)
 		},
 	},
 }
