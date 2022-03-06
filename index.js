@@ -114,7 +114,7 @@ client.on('message', (channel, user, message, self) => {
 
 // Constants
 const jokes = [
-	'Servis hudebních nástrojů, dpovědný vedoucí: Ing. Prokop Buben',
+	'Servis hudebních nástrojů, odpovědný vedoucí: Ing. Prokop Buben',
 	'Víte jak se jmenuje had, který vypráví vtipy? Hahad',
 	'Víš, jak se kouzelník utírá na záchodě? Normálně – trikem.',
 	'Pepíček dostal k narozeninám granát a je z toho celý pryč.',
