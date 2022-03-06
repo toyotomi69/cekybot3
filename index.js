@@ -139,6 +139,7 @@ const jokes = [
 	'Kdy je muž NAIVNÍ? Při souloži - když je NA I V NÍ.',
 	'Víte, jak si z černocha vytvoříte léčivou bylinu? Uříznete mu ho a máte ČERNEJ BEZ. cmonBruh',
 	'Proč ženy během milostné předehry ani nemrknou? Protože to nestihnou.',
+	'Příjde cápek do baru',
 ]
 
 // base cooldown is 30 seconds, if specific needed add 'cooldown: <!SECONDS!>' to the command object
