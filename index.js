@@ -147,7 +147,7 @@ const commands = {
 		fnc: ({ client, channel }) => {
 			client.say(
 				channel,
-				`!zalud <tvrzení>, !hodnoceni, !madmonq, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas, !kdoudelalcekybota :)`
+				`!zalud <tvrzení>, !hodnoceni, !madmonq, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas, !cojezaden, !kdoudelalcekybota :)`
 			)
 		},
 	},
@@ -217,7 +217,7 @@ const commands = {
 	},
 	kdoudelalcekybota: {
 		fnc: ({ client, channel, user }) => {
-			client.say(channel, `@${user.username} ctrlv.cz/NeXE s pomocí @trollyal a @sidlo01`)
+			client.say(channel, `@${user.username} ctrlv.cz/NeXE toyotomi s @trollyal a @sidlo01`)
 		},
 	},
 }
