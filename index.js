@@ -82,8 +82,12 @@ client.on('message', (channel, user, message, self) => {
 		if (message.includes('žalud')) {
 			client.say(channel, `@${username} zaludWeird`)
 		}
-		if (message.includes("!mlady")) {
+		if (message.includes(" !mlady")) {
 			var jmeno = message.split(" ")[0];
+			client.say(channel, `MLADY 🌹 ${jmeno}`);
+		     }
+		if (message.includes("!mlady ")) {
+			var jmeno = message.split(" ")[1];
 			client.say(channel, `MLADY 🌹 ${jmeno}`);
 		     }
 		if (message == '!cojezaden') {
