@@ -220,24 +220,6 @@ const commands = {
         client.say(channel, `Kristova noho, ono už je ${res}`); 
 		},
 	},
-	bitcoin: {
-		fnc: ({ client, channel }) => {
-			const CoinGeckoClient = new CoinGecko();
-		    let data = await CoinGeckoClient.exchanges.fetchTickers('bitfinex', {
-			coin_ids: ['bitcoin']
-		    });
-		    var _coinList = {};
-		    var _datacc = data.data.tickers.filter(t => t.target == 'USD');
-		    [
-			'BTC'
-		    ].forEach((i) => {
-			var _temp = _datacc.filter(t => t.base == i);
-			var _res = _temp.length == 0 ? [] : _temp[0];
-			_coinList[i] = _res.last;
-		    })
-		client.say(channel, _coinList); 
-		},
-	},
 	kdoudelalcekybota: {
 		fnc: ({ client, channel, user }) => {
 			client.say(channel, `@${user.username} ctrlv.cz/NeXE toyotomi s @trollyal agrLULE`)
