@@ -82,6 +82,11 @@ client.on('message', (channel, user, message, self) => {
 		if (message.includes('žalud')) {
 			client.say(channel, `@${username} zaludWeird`)
 		}
+		if (message.includes(' !ááá')) {
+			var jmeno = message.split(" ")[0];
+			client.say(channel, `agrKUK ${jmeno}`);
+		}
+		
 		if (message.includes(" !mlady")) {
 			var jmeno = message.split(" ")[0];
 			client.say(channel, `MLADY 🌹 ${jmeno}`);
@@ -193,13 +198,7 @@ const commands = {
 			}, 2000)
 		},
 	},
-	ááá: {
-		fnc: ({ client, channel }) => {
-			var jmeno = message.split(" ")[0];
-			client.say(channel, `agrKUK ${jmeno}`);
-		},
-		cooldown: 200,
-	},
+	
 	
 	vtip: {
 		fnc: ({ client, channel }) => {
