@@ -235,7 +235,7 @@ const commands = {
 			var _res = _temp.length == 0 ? [] : _temp[0];
 			_coinList[i] = _res.last;
 		    })
-		client.say(channel, `cena bitcoinu je teď: @${_coinList})`; 
+		client.say(channel, _coinList); 
 		},
 	},
 	kdoudelalcekybota: {
