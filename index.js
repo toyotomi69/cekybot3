@@ -146,7 +146,6 @@ const jokes = [
 	'Nanosekunda = dámské přirození na čichovém orgánu?',
 	'Když se natáčel Kameňák, bylo na place zakázáno kouřit… A když už, tak JENOM TROŠKU.',
 	'Kdy je muž NAIVNÍ? Při souloži - když je NA I V NÍ.',
-	'Víte, jak si z černocha vytvoříte léčivou bylinu? Uříznete mu ho a máte ČERNEJ BEZ. cmonBruh',
 	'Proč ženy během milostné předehry ani nemrknou? Protože to nestihnou.',
 	'Příjde cápek do baru',
 ]
