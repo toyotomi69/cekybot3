@@ -193,6 +193,13 @@ const commands = {
 			}, 2000)
 		},
 	},
+	ááá: {
+		fnc: ({ client, channel }) => {
+			var jmeno = message.split(" ")[0];
+			client.say(channel, `agrKUK ${jmeno}`);
+		},
+		cooldown: 200,
+	},
 	
 	vtip: {
 		fnc: ({ client, channel }) => {
