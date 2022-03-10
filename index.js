@@ -84,7 +84,7 @@ client.on('message', (channel, user, message, self) => {
 		}
 		if (message.includes(' !ááá')) {
 			var jmeno = message.split(" ")[0];
-			client.say(channel, `agrKUK ${jmeno}`);
+			client.say(channel, `agrKUK ááá ty debílku ${jmeno} , nojo zmrde já tě vidim`);
 		}
 		
 		if (message.includes(" !mlady")) {
