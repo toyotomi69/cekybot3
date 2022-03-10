@@ -61,7 +61,7 @@ client.on('message', (channel, user, message, self) => {
 			)[0]
 
 			if (!responseDictionary[messageCategory]) return
-			client.say(channel, responseDictionary[messageCategory](username))
+			client.say(channel, responseDictionary[messageCategory](username)) 
 		}
 
 		// Command handling
