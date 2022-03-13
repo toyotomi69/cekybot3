@@ -202,9 +202,9 @@ const commands = {
 			let ws = new WebSocket('wss://stream.binance.com:9443/ws/ethusd@trade')
 			ws.onmessage = (event) => {
 				let stockObject = JSON.parse(event.data)
-				let cena = parseFloat(stockObject.p).toFixed(2)
+				let cena = stockObject.p
 			};
-			client.say(channel, cena etherea je ${rest}$)
+			client.say(channel,` cena etherea je ${rest}$`)
 		},
 	},
 	
