@@ -204,7 +204,7 @@ const commands = {
 				let stockObject = JSON.parse(event.data)
 				let cena = stockObject.p
 			};
-			client.say(channel,` cena etherea je ${rest}$`)
+			client.say(channel,` cena etherea je ${cena}$`)
 		},
 	},
 	
