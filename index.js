@@ -1,5 +1,6 @@
-const tmi = require('tmi.js'),
-	{ channel, username, password } = require('./settings.json')
+const fetch = require('node-fetch')
+const tmi = require('tmi.js')
+const { channel, username, password } = require('./settings.json')
 
 const tmiOptions = {
 	options: { debug: true },
@@ -61,7 +62,7 @@ client.on('message', (channel, user, message, self) => {
 			)[0]
 
 			if (!responseDictionary[messageCategory]) return
-			client.say(channel, responseDictionary[messageCategory](username)) 
+			client.say(channel, responseDictionary[messageCategory](username))
 		}
 
 		// Command handling
@@ -83,41 +84,49 @@ client.on('message', (channel, user, message, self) => {
 			client.say(channel, `@${username} zaludWeird`)
 		}
 		if (message.includes(' !ááá')) {
-			var jmeno = message.split(" ")[0];
-			client.say(channel, `agrKUK ááá ty debílku ${jmeno} , nojo zmrde já tě vidim`);
+			var jmeno = message.split(' ')[0]
+			client.say(
+				channel,
+				`agrKUK ááá ty debílku ${jmeno} , nojo zmrde já tě vidim`
+			)
 		}
-		
-		if (message.includes(" !mlady")) {
-			var jmeno = message.split(" ")[0];
-			client.say(channel, `MLADY 🌹 ${jmeno}`);
-		     }
-		if (message.includes("!mlady ")) {
-			var jmeno = message.split(" ")[1];
-			client.say(channel, `MLADY 🌹 ${jmeno}`);
-		     }
+
+		if (message.includes(' !mlady')) {
+			var jmeno = message.split(' ')[0]
+			client.say(channel, `MLADY 🌹 ${jmeno}`)
+		}
+		if (message.includes('!mlady ')) {
+			var jmeno = message.split(' ')[1]
+			client.say(channel, `MLADY 🌹 ${jmeno}`)
+		}
 		if (message == '!cojezaden') {
-					(function() {
-		    var days = ['Neděle','Pondělí','Úterý','Středa','Čtvrtek','Pátek','Sobota'];
+			;(function () {
+				var days = [
+					'Neděle',
+					'Pondělí',
+					'Úterý',
+					'Středa',
+					'Čtvrtek',
+					'Pátek',
+					'Sobota',
+				]
 
-		    
-		    Date.prototype.getDayName = function() {
-			return days[ this.getDay() ];
-		    };
-		})();
+				Date.prototype.getDayName = function () {
+					return days[this.getDay()]
+				}
+			})()
 
-		var now = new Date();
+			var now = new Date()
 
-		var day = now.getDayName();
+			var day = now.getDayName()
 			client.say(channel, `Dneska je ${day} :)`)
 		}
-		if (message.includes(" !gn")) {
-			var jmeno = message.split(" ")[0];
-			client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`);
-		
-        
-      } 
+		if (message.includes(' !gn')) {
+			var jmeno = message.split(' ')[0]
+			client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`)
+		}
 	} catch (err) {
-		console.log(err) 
+		console.log(err)
 	}
 })
 
@@ -198,17 +207,17 @@ const commands = {
 		},
 	},
 	eth: {
-		fnc: ({ client, channel }) => {
-			let ws = new WebSocket('wss://stream.binance.com:9443/ws/ethusd@trade')
-			ws.onmessage = (event) => {
-				let stockObject = JSON.parse(event.data)
-				let cena = stockObject.p
-			};
-			client.say(channel,` cena etherea je ${cena}$`)
+		fnc: async ({ client, channel }) => {
+			const price = await getCrypto('ETH')
+			client.say(channel, `Cena etherea je $${price}`)
 		},
 	},
-	
-	
+	btc: {
+		fnc: async ({ client, channel }) => {
+			const price = await getCrypto('BTC')
+			client.say(channel, `Cena bitcoinu je $${price}`)
+		},
+	},
 	vtip: {
 		fnc: ({ client, channel }) => {
 			client.say(channel, getRandomItemFromArray(jokes))
@@ -218,26 +227,47 @@ const commands = {
 	cas: {
 		fnc: ({ client, channel }) => {
 			Date.prototype.timeNow = function () {
-			    return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
-		       }
-		       var datetimet =  new Date().timeNow();
-		       var res = datetimet.substring(0, 5);
-        client.say(channel, `Kristova noho, ono už je ${res}`); 
+				return (
+					(this.getHours() < 10 ? '0' : '') +
+					this.getHours() +
+					':' +
+					(this.getMinutes() < 10 ? '0' : '') +
+					this.getMinutes() +
+					':' +
+					(this.getSeconds() < 10 ? '0' : '') +
+					this.getSeconds()
+				)
+			}
+			var datetimet = new Date().timeNow()
+			var res = datetimet.substring(0, 5)
+			client.say(channel, `Kristova noho, ono už je ${res}`)
 		},
 	},
 	čas: {
 		fnc: ({ client, channel }) => {
 			Date.prototype.timeNow = function () {
-			    return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
-		       }
-		       var datetimet =  new Date().timeNow();
-		       var res = datetimet.substring(0, 5);
-        client.say(channel, `Kristova noho, ono už je ${res}`); 
+				return (
+					(this.getHours() < 10 ? '0' : '') +
+					this.getHours() +
+					':' +
+					(this.getMinutes() < 10 ? '0' : '') +
+					this.getMinutes() +
+					':' +
+					(this.getSeconds() < 10 ? '0' : '') +
+					this.getSeconds()
+				)
+			}
+			var datetimet = new Date().timeNow()
+			var res = datetimet.substring(0, 5)
+			client.say(channel, `Kristova noho, ono už je ${res}`)
 		},
 	},
 	kdoudelalcekybota: {
 		fnc: ({ client, channel, user }) => {
-			client.say(channel, `@${user.username} ctrlv.cz/NeXE toyotomi s @trollyal agrLULE`)
+			client.say(
+				channel,
+				`@${user.username} ctrlv.cz/NeXE toyotomi s @trollyal agrLULE`
+			)
 		},
 	},
 }
@@ -310,3 +340,19 @@ function executeCommand(command, user, client, channel) {
 
 // map for command cooldowns, leave empty!
 const cooldownMap = {}
+
+async function getCrypto(cryptoTag) {
+	try {
+		const crypto = await fetch(
+			`https://api.blockchain.com/v3/exchange/tickers/${cryptoTag}-USD`
+		)
+
+		const response = await crypto.json()
+
+		const price = response.last_trade_price
+
+		return price
+	} catch (err) {
+		console.log(err)
+	}
+}
