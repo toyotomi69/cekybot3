@@ -227,10 +227,26 @@ const commands = {
 				return
 			}
 
-			const amountInCzk = await getEurToCzk(rest)
+			const amountInCzk = await getEurToCzk(amount)
 
 			if (amountInCzk) {
 				client.say(channel, `${amount} eur je ${amountInCzk} korun`)
+			}
+		},
+	},
+	veurech: {
+		fnc: async ({ client, channel, rest }) => {
+			const amount = parseFloat(rest)
+
+			if (isNaN(amount)) {
+				client.say(channel, `${rest} neni validní číslo zaludWeird`)
+				return
+			}
+
+			const amountInEur = await getCzkToEur(amount)
+
+			if (amountInEur) {
+				client.say(channel, `${amount} korun je ${amountInEur} euro`)
 			}
 		},
 	},
@@ -381,6 +397,21 @@ async function getEurToCzk(value = 1) {
 		const czk = rates?.rates?.CZK | 0
 
 		const price = czk * value
+
+		return price.toFixed(2)
+	} catch (err) {
+		console.warn(error)
+	}
+}
+
+async function getCzkToEur(value = 1) {
+	try {
+		const response = await fetch('https://api.exchangerate.host/latest')
+		const rates = await response.json()
+
+		const czk = rates?.rates?.CZK | 0
+
+		const price = value / czk
 
 		return price.toFixed(2)
 	} catch (err) {
