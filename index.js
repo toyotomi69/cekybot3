@@ -126,7 +126,7 @@ client.on('message', (channel, user, message, self) => {
 			client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`)
 		}
 	} catch (err) {
-		console.log(err)
+		console.warn(err)
 	}
 })
 
@@ -216,6 +216,22 @@ const commands = {
 		fnc: async ({ client, channel }) => {
 			const price = await getCrypto('BTC')
 			client.say(channel, `Cena bitcoinu je $${price}`)
+		},
+	},
+	vkorunach: {
+		fnc: async ({ client, channel, rest }) => {
+			const amount = parseFloat(rest)
+
+			if (isNaN(amount)) {
+				client.say(channel, `${rest} neni validní číslo zaludWeird`)
+				return
+			}
+
+			const amountInCzk = await getEurToCzk(rest)
+
+			if (amountInCzk) {
+				client.say(channel, `${amount} eur je ${amountInCzk} korun`)
+			}
 		},
 	},
 	vtip: {
@@ -353,6 +369,21 @@ async function getCrypto(cryptoTag) {
 
 		return price
 	} catch (err) {
-		console.log(err)
+		console.warn(err)
+	}
+}
+
+async function getEurToCzk(value = 1) {
+	try {
+		const response = await fetch('https://api.exchangerate.host/latest')
+		const rates = await response.json()
+
+		const czk = rates?.rates?.CZK | 0
+
+		const price = czk * value
+
+		return price.toFixed(2)
+	} catch (err) {
+		console.warn(error)
 	}
 }
