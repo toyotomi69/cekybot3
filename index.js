@@ -197,6 +197,16 @@ const commands = {
 			}, 2000)
 		},
 	},
+	eth: {
+		fnc: ({ client, channel }) => {
+			let ws = new WebSocket('wss://stream.binance.com:9443/ws/ethusd@trade')
+			ws.onmessage = (event) => {
+				let stockObject = JSON.parse(event.data)
+				let cena = parseFloat(stockObject.p).TtoFixed(2)
+			};
+			client.say(channel, cena etherea je ${rest}$)
+		},
+	},
 	
 	
 	vtip: {
