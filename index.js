@@ -209,7 +209,7 @@ const commands = {
 	eth: {
 		fnc: async ({ client, channel }) => {
 			const price = await getCrypto('ETH')
-			client.say(channel, `Cena etherea je $${price}`)
+			client.say(channel, `Cena etherea je $${price.toLocaleString()}`)
 		},
 	},
 	btc: {
