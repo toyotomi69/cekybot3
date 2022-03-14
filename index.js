@@ -208,9 +208,6 @@ const commands = {
 	},
 	eth: {
 		fnc: async ({ client, channel }) => {
-			function addStr(price, index, carka){
-			  return str.substring(0, index) + stringToAdd + str.substring(index, str.length)
-			}
 			const price = await getCrypto('ETH')
 			let carka = ","
 			client.say(channel, `Cena etherea je $${addStr(price, 1, carka)}`)
@@ -343,7 +340,9 @@ function getRandomItemFromArray(array) {
 	const randomIndex = Math.floor(Math.random() * array.length)
 	return array[randomIndex]
 }
-
+function addStr(price, index, carka){
+	return str.substring(0, index) + stringToAdd + str.substring(index, str.length)
+}
 function prependZeroToTime(number) {
 	return number >= 10 ? number.toString() : `0${number.toString()}`
 }
