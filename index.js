@@ -215,7 +215,7 @@ const commands = {
 	btc: {
 		fnc: async ({ client, channel }) => {
 			const price = await getCrypto('BTC')
-			client.say(channel, `Cena bitcoinu je $${price}`)
+			client.say(channel, `Cena bitcoinu je $${price.toLocaleString()}`)
 		},
 	},
 	vkorunach: {
