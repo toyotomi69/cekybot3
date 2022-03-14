@@ -209,8 +209,7 @@ const commands = {
 	eth: {
 		fnc: async ({ client, channel }) => {
 			const price = await getCrypto('ETH')
-			let carka = ","
-			client.say(channel, `Cena etherea je $${addStr(price, 1, carka)}`)
+			client.say(channel, `Cena etherea je $${price.substr(0,1)+","+price.substr(1)}`)
 		},
 	},
 	btc: {
@@ -339,9 +338,6 @@ function tagsBot(message) {
 function getRandomItemFromArray(array) {
 	const randomIndex = Math.floor(Math.random() * array.length)
 	return array[randomIndex]
-}
-function addStr(price, index, carka){
-	return str.substring(0, index) + stringToAdd + str.substring(index, str.length)
 }
 function prependZeroToTime(number) {
 	return number >= 10 ? number.toString() : `0${number.toString()}`
