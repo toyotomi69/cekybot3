@@ -208,7 +208,7 @@ const commands = {
 	},
 	eth: {
 		fnc: async ({ client, channel }) => {
-			function addStr(str, index, stringToAdd){
+			function addStr(price, index, carka){
 			  return str.substring(0, index) + stringToAdd + str.substring(index, str.length)
 			}
 			const price = await getCrypto('ETH')
