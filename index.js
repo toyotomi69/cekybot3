@@ -208,6 +208,9 @@ const commands = {
 	},
 	eth: {
 		fnc: async ({ client, channel }) => {
+			function addStr(str, index, stringToAdd){
+			  return str.substring(0, index) + stringToAdd + str.substring(index, str.length)
+			}
 			const price = await getCrypto('ETH')
 			let carka = ","
 			client.say(channel, `Cena etherea je $${addStr(price, 1, carka)}`)
