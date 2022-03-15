@@ -81,12 +81,22 @@ client.on('message', (channel, user, message, self) => {
 				const amount = parseInt(amountMatch[0])
 
 				if (!amount || isNaN(amount)) return
-
+				
 				const amountInGas = amount / 50
-
+				
+				var litr = ""
+				
+				if (amountInGas = 1) {
+				  litr = "litr"
+				} else if (amountInGas = 2 || 3 || 4) {
+				  litr = "litry" 
+				} else {
+				  litr = "litrů"
+				}
+				
 				client.say(
 					channel,
-					`Vojta právě dostal ${amountInGas} litrů benzínu :)`
+					`Vojta právě dostal ${amountInGas} ${litr} benzínu :)`
 				)
 			}
 		}
