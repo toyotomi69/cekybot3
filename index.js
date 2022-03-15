@@ -84,7 +84,7 @@ client.on('message', (channel, user, message, self) => {
 
 				const amountInGas = amount / 50
 
-				var litr = ''
+				let litr = ''
 
 				if (amountInGas === 1) litr = 'litr'
 				else if (amountInGas % 1 !== 0) litr = 'litru'
@@ -93,7 +93,7 @@ client.on('message', (channel, user, message, self) => {
 
 				client.say(
 					channel,
-					`Vojta právě dostal ${amountInGas} litrů benzínu :)`
+					`Vojta právě dostal ${amountInGas} ${litr} benzínu :)`
 				)
 			}
 		}
