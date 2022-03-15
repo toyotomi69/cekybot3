@@ -80,7 +80,7 @@ client.on('message', (channel, user, message, self) => {
 		if (message.includes(`Kč Díky b`) {
 			var litrarr = message.split(' ');
 			let index = 4;
-			let litru = litrarr.at(index)
+			var litru = litrarr.at(index)
 			client.say(channel, `Vojta právě dostal ${litru} benzínu :)`)
 		}
 		if (message.includes(' žalud ')) {
