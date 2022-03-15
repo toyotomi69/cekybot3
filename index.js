@@ -86,8 +86,8 @@ client.on('message', (channel, user, message, self) => {
 
 				var litr = ''
 
-				if (amountInGas % 1 !== 0) litr = 'litru'
-				else if (amountInGas === 1) litr = 'litr'
+				if (amountInGas === 1) litr = 'litr'
+				else if (amountInGas % 1 !== 0) litr = 'litru'
 				else if (amountInGas > 1 && amountInGas <= 4) litr = 'litry'
 				else litr = 'litrů'
 
