@@ -234,6 +234,22 @@ const commands = {
 			}
 		},
 	},
+	benzin: {
+		fnc: async ({ client, channel, rest }) => {
+			const amount = parseFloat(rest)
+
+			if (isNaN(amount)) {
+				client.say(channel, `${rest} neni validní číslo zaludWeird`)
+				return
+			}
+
+			const amountInCzk = amount/50 
+
+			if (amountInCzk) {
+				client.say(channel, `${amount}KČ je ${amountInCzk.toLocaleString()} litrů benzínu`)
+			}
+		},
+	},
 	veurech: {
 		fnc: async ({ client, channel, rest }) => {
 			const amount = parseFloat(rest)
