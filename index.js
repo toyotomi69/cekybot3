@@ -77,7 +77,7 @@ client.on('message', (channel, user, message, self) => {
 		if (message == `agr1 agr2`) {
 			client.say(channel, `agr3 agr4`)
 		}
-		if (message.includes(`Kč Díky b`) {
+		if (message.includes(`Kč Díky b`)) {
 			var litrarr = message.split(' ');
 			let index = 4;
 			var litru = litrarr.at(index)
