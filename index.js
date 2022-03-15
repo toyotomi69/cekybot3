@@ -81,7 +81,8 @@ client.on('message', (channel, user, message, self) => {
 			var litrarr = message.split(' ');
 			let index = 4;
 			var litru = litrarr.at(index)
-			client.say(channel, `Vojta právě dostal ${litru} benzínu :)`)
+			let litrint = parseInt(litru)/50
+			client.say(channel, `Vojta právě dostal ${litrint} benzínu :)`)
 		}
 		if (message.includes(' žalud ')) {
 			client.say(channel, `@${username} zaludWeird`)
