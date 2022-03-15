@@ -246,7 +246,7 @@ const commands = {
 			const amountInCzk = amount/50 
 
 			if (amountInCzk) {
-				client.say(channel, `${amount}KČ je ${amountInCzk.toLocaleString()} litrů benzínu`)
+				client.say(channel, `${amount}Kč je ${amountInCzk.toLocaleString()} litrů benzínu`)
 			}
 		},
 	},
