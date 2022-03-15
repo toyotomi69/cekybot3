@@ -70,19 +70,33 @@ client.on('message', (channel, user, message, self) => {
 			executeCommand(message, user, client, channel)
 		}
 
+		// StreamElements reaction
+		if (username.toLocaleLowerCase() === 'streamelements') {
+			if (message.includes(' dono ')) {
+				const regex = /([0-9])*\.([0-9])* Kč/
+				const amountMatch = regex.exec(message)
+
+				if (!amountMatch || !amountMatch[0]) return
+
+				const amount = parseInt(amountMatch[0])
+
+				if (!amount || isNaN(amount)) return
+
+				const amountInGas = amount / 50
+
+				client.say(
+					channel,
+					`Vojta právě dostal ${amountInGas} litrů benzínu :)`
+				)
+			}
+		}
+
 		// Special interactions
 		if (message == 'zaludE') {
 			client.say(channel, `@${username} zaludE`)
 		}
 		if (message == `agr1 agr2`) {
 			client.say(channel, `agr3 agr4`)
-		}
-		if (message.includes(`Kč Díky b`)) {
-			var litrarr = message.split(' ');
-			let index = 4;
-			var litru = litrarr.at(index).slice(0, -2)
-			let litrint = parseInt(litru)/50
-			client.say(channel, `Vojta právě dostal ${litrint} benzínu :)`)
 		}
 		if (message.includes(' žalud ')) {
 			client.say(channel, `@${username} zaludWeird`)
@@ -250,10 +264,13 @@ const commands = {
 				return
 			}
 
-			const amountInCzk = amount/50 
+			const amountInCzk = amount / 50
 
 			if (amountInCzk) {
-				client.say(channel, `${amount}Kč je ${amountInCzk.toLocaleString()} litrů benzínu`)
+				client.say(
+					channel,
+					`${amount}Kč je ${amountInCzk.toLocaleString()} litrů benzínu`
+				)
 			}
 		},
 	},
