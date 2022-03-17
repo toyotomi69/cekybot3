@@ -95,7 +95,7 @@ client.on('message', (channel, user, message, self) => {
 
 				client.say(
 					channel,
-					`Vojta právě dostal ${amountInGas} ${litr} benzínu :)c dojel by tedy ${km}km`
+					`Vojta právě dostal ${amountInGas} ${litr} benzínu :) dojel by tedy ${km}km`
 				)
 			}
 		}
