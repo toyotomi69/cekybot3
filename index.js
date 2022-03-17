@@ -24,7 +24,7 @@ const dateFormatterOptions = {
 	second: 'numeric',
 }
 
-const cenaBenzinu = 50
+const cenaBenzinu = 46
 
 //node index.js
 const client = new tmi.Client(tmiOptions)
@@ -97,7 +97,7 @@ client.on('message', (channel, user, message, self) => {
 
 				client.say(
 					channel,
-					`Vojta právě dostal ${amountInGas.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${litr.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} benzínu :) dojel by tedy ${km.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}km`
+					`Vojta právě dostal ${amountInGas.toFixed(2)} ${litr.toFixed(2)} benzínu :) dojel by tedy ${km.toFixed(2)}km`
 				)
 			}
 		}
