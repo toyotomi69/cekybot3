@@ -287,7 +287,7 @@ const commands = {
 				return
 			}
 
-			const amountInCzk = amount / 50
+			const amountInCzk = amount / cenaBenzinu
 
 			if (amountInCzk) {
 				client.say(
@@ -361,7 +361,7 @@ const commands = {
 		fnc: ({ client, channel, user }) => {
 			client.say(
 				channel,
-				`@${user.username} ctrlv.cz/NeXE toyotomi s @trollyal agrLULE`
+				`@${user.username} toyotomi s @trollyal agrLULE`
 			)
 		},
 	},
