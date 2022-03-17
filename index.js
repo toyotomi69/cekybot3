@@ -90,10 +90,12 @@ client.on('message', (channel, user, message, self) => {
 				else if (amountInGas % 1 !== 0) litr = 'litru'
 				else if (amountInGas > 1 && amountInGas <= 4) litr = 'litry'
 				else litr = 'litrů'
+				
+				const km = amountInGas/8*100
 
 				client.say(
 					channel,
-					`Vojta právě dostal ${amountInGas} ${litr} benzínu :)`
+					`Vojta právě dostal ${amountInGas} ${litr} benzínu :)c dojel by tedy ${km}km`
 				)
 			}
 		}
