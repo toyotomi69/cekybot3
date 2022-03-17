@@ -97,7 +97,7 @@ client.on('message', (channel, user, message, self) => {
 
 				client.say(
 					channel,
-					`Vojta právě dostal ${amountInGas.toLocaleString()} ${litr.toLocaleString()} benzínu :) dojel by tedy ${km}km`
+					`Vojta právě dostal ${amountInGas.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${litr..toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} benzínu :) dojel by tedy ${km}km`
 				)
 			}
 		}
