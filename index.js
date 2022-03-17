@@ -185,6 +185,18 @@ const jokes = [
 	'Kdy je muž NAIVNÍ? Při souloži - když je NA I V NÍ.',
 	'Proč ženy během milostné předehry ani nemrknou? Protože to nestihnou.',
 	'Příjde cápek do baru',
+	'„Mamí, upadl nám žebřík,“ říká Pepíček. „Tak to řekni tátovi!“ „On už to ví, visí na okapu.“',
+	'„Pepíčku, proč jsi včera nebyl ve škole?“ „Vy jste říkala že kdo nebude mít domácí úkol tak ať se tady ani neukazuje.“',
+	'Ptá se máma Pepíčka: „Proč krmíš slepice čokoládou?“ On na to odpoví: „Aby mi snesly kindervajíčko!“',
+	'Mami, já nechci brášku. Neodmlouvej a žer co je!',
+	'Jde chlap po ulici a v náručí nese urnu. Okolo něho jde lidožrout a povidá: „No teeda, kdes sehnal instant?“',
+	'Chuck Norris chytil koronavirus. Bylo mu ho líto, tak ho zase pustil.',
+	'Baví se dva grafici: „Já jsem sbalil novou holku, je krásná, 90-60-90…“ „Cože? Tmavě fialová?“',
+	'CSS humor: #titanic { float: none; }',
+	'Co slyší webmaster, když jede vlakem? <td></td><td></td><td></td><td></td><td></td>',
+	'Jsou dvě blechy na zastávce, běží kolem pes a jedna blecha říká: „Tak ahoj, jede mi autobus.“',
+	'Letí dva balonky po poušti a jeden říká: „Pozor kaktussss!“ „Kde ho vidíšššš?“',
+	'Čech a Američan hrají šachy. Američan táhne a říká: „Jezdec na D1!“ Čech to komentuje: „To bych nedělal…“',
 ]
 
 // base cooldown is 30 seconds, if specific needed add 'cooldown: <!SECONDS!>' to the command object
