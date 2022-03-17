@@ -24,6 +24,8 @@ const dateFormatterOptions = {
 	second: 'numeric',
 }
 
+const cenaBenzinu = 46
+
 //node index.js
 const client = new tmi.Client(tmiOptions)
 client.connect().catch(console.error)
@@ -82,7 +84,7 @@ client.on('message', (channel, user, message, self) => {
 
 				if (!amount || isNaN(amount)) return
 
-				const amountInGas = amount / 50
+				const amountInGas = amount / cenaBenzinu
 
 				let litr = ''
 
