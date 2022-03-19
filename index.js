@@ -357,13 +357,18 @@ const commands = {
 			client.say(channel, `Kristova noho, ono už je ${res}`)
 		},
 	},
-	kdoudelalcekybota: {
+	google: {
 		fnc: ({ client, channel, user }) => {
-			client.say(
-				channel,
-				`@${user.username} toyotomi s @trollyal agrLULE`
-			)
+			var co = message.split(' ')[1]
+			let hledani = co.slice(7);
+			hledani = hledani.replace(/\s+/g, '+').toLowerCase()
+			let google = google.com/sea
+			let google2 = rch? 
+			google = google.concat(google2)
+			google = google.concat(hledani)
+			client.say(channel, `${hledani}`)
 		},
+		cooldown: 300,
 	},
 }
 
