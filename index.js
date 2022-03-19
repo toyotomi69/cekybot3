@@ -362,11 +362,9 @@ const commands = {
 			var co = message.split(' ')[1]
 			let hledani = co.slice(7);
 			hledani = hledani.replace(/\s+/g, '+').toLowerCase()
-			let google = google.com/sea
-			let google2 = rch? 
-			google = google.concat(google2)
-			google = google.concat(hledani)
-			client.say(channel, `${hledani}`)
+			let google = "google.com/serch?"
+			let google2 = google.concat(hledani)
+			client.say(channel, `${google2}`)
 		},
 		cooldown: 300,
 	},
