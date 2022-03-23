@@ -368,6 +368,12 @@ const commands = {
 		},
 		cooldown: 300,
 	},
+	dono: {
+		fnc: ({ client, channel, user }) => {
+			client.say(channel, `https://StreamElements.com/agraelus/tip`)
+		},
+		cooldown: 100,
+	},
 }
 
 const messageCategoriesMatcher = {
