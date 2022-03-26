@@ -26,6 +26,10 @@ const dateFormatterOptions = {
 
 const cenaBenzinu = 46
 
+// Last message
+const lastMessage = {}
+const watchedPeople = ['toyotomi_cz']
+
 //node index.js
 const client = new tmi.Client(tmiOptions)
 client.connect().catch(console.error)
@@ -53,10 +57,14 @@ client.on('subscription', function (channel, username, methods) {
 
 client.on('message', (channel, user, message, self) => {
 	if (self) return
-
+	
 	try {
 		const { username } = user
-
+		
+		if (watchedPeople.includes(username)) {
+			lastMessage[username] = message
+		}
+		
 		// Handling messages, that tag bot
 		if (tagsBot(message)) {
 			const messageCategory = Object.entries(messageCategoriesMatcher).find(
