@@ -100,10 +100,10 @@ client.on('message', (channel, user, message, self) => {
 				//	`Vojta právě dostal ${amountInGas.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${litr.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} benzínu :) dojel by tedy ${km.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}km`
 				//)
 				
-				client.say(
-					channel,
-					`Ráďa právě dostal ${amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}Kč na novou multiplu agrChamp`
-				)
+				//client.say(
+				//	channel,
+				//	`Ráďa právě dostal ${amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}Kč na novou multiplu agrChamp`
+				//)
 				
 			}
 		}
