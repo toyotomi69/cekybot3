@@ -11,7 +11,7 @@ const tmiOptions = {
 	identity: {
 		username,
 		password,
-	},
+	}, 
 	channels: [channel],
 }
 const dateFormatterOptions = {
