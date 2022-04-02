@@ -275,6 +275,18 @@ const commands = {
 			}, 2000)
 		},
 	},
+	vyplata: {
+		fnc: async ({ client, channel }) => {
+			const price = await getCrypto('ETH')
+			if (price < 3500) {
+				var kolik= 3500-price
+				client.say(channel, `Do výplaty chybí $${kolik.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ETH`)
+			  } else {
+				client.say(channel, `dělej dělej, dej modům vejplatu, cena ETH je $${price.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`)
+			  }
+		},
+		cooldown: 60,
+	},
 	eth: {
 		fnc: async ({ client, channel }) => {
 			const price = await getCrypto('ETH')
