@@ -115,6 +115,13 @@ client.on('message', (channel, user, message, self) => {
 				
 			}
 		}
+		if (username.toLocaleLowerCase() === 'rasovatolerance') {
+			if (message == '!nos')) {
+				const num = nos()
+				client.say(channel, `vojtův nos je dlouhý ${num}cm`)
+				
+			}
+		}
 
 		// Special interactions
 		if (message == 'zaludE') {
@@ -415,6 +422,11 @@ function rollDice() {
 function hraxd() {
 	const sides = 10
 	return Math.floor(Math.random() * sides) + 1
+}
+
+function nos() {
+	const sides = 20
+	return Math.floor(Math.random() * sides) + 5
 }
 
 function isCommand(message) {
