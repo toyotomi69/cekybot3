@@ -116,7 +116,7 @@ client.on('message', (channel, user, message, self) => {
 			}
 		}
 		if (username.toLocaleLowerCase() === 'rasovatolerance') {
-			if (message == '!nos')) {
+			if (message == '!nos') {
 				const num = nos()
 				client.say(channel, `vojtův nos je dlouhý ${num}cm`)
 				
