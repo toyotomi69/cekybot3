@@ -282,10 +282,9 @@ const commands = {
 				var kolik= 3500-price
 				client.say(channel, `Do výplaty chybí $${kolik.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ETH`)
 			  } else {
-				client.say(channel, `dělej dělej, dej modům vejplatu, cena ETH je $${price.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`)
+				client.say(channel, `dělej dělej, dej modům vejplatu, cena ETH je $${price.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ModLove @Agraelus`)
 			  }
 		},
-		cooldown: 60,
 	},
 	eth: {
 		fnc: async ({ client, channel }) => {
@@ -297,12 +296,6 @@ const commands = {
 		fnc: async ({ client, channel }) => {
 			const price = await getCrypto('BTC')
 			client.say(channel, `Cena bitcoinu je $${price.toLocaleString()}`)
-		},
-	},
-	modvyplata: {
-		fnc: async ({ client, channel }) => {
-			
-			client.say(channel, `Dnes :)`)
 		},
 	},
 	vkorunach: {
