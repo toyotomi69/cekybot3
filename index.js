@@ -314,6 +314,18 @@ const commands = {
 			}
 		},
 	},
+	sub: {
+		fnc: async ({ client, channel }) => {
+
+			const subInCzk = await getEurToCzk(3.99)
+			const VAT = subInCzk * 0.21
+			const noVAT = subInCzk * 0.79
+
+			if (subInCzk) {
+				client.say(channel, `Sub dneska stojí ${subInCzk} Kč. Z toho je VAT ${VAT} Kč. Sub bez VAT stojí ${noVAT} Kč`)
+			}
+		},
+	},
 	benzin: {
 		fnc: async ({ client, channel, rest }) => {
 			const amount = parseFloat(rest)
