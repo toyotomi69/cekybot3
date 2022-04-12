@@ -115,7 +115,7 @@ client.on('message', (channel, user, message, self) => {
 				
 			}
 		}
-		if (username.toLocaleLowerCase() === 'rasovatolerance') {
+		if (username.toLocaleLowerCase() === 'rasovatolerance' || 'toyotomi_cz') {
 			if (message == '!nos') {
 				const num = nos()
 				client.say(channel, `vojtův nos je dlouhý ${num}cm`)
@@ -415,6 +415,12 @@ const commands = {
 			client.say(channel, `${google2}`)
 		},
 		cooldown: 300,
+	},
+	miken: {
+		fnc: ({ client, channel, user }) => {
+			client.say(channel, `celejzivotfree.eu`)
+		},
+		cooldown: 600,
 	},
 }
 
