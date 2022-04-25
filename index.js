@@ -234,7 +234,7 @@ const commands = {
 		fnc: ({ client, channel }) => {
 			client.say(
 				channel,
-				`!zalud <tvrzení>, !hodnoceni, !madmonq, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas, !cojezaden, !kdoudelalcekybota, !btc, !eth, !benzin <kč> :)`
+				`!zalud <tvrzení>, !hodnoceni, !madmonq, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas, !cojezaden, !kdoudelalcekybota, !btc, !eth, !miken, !vyplata :)`
 			)
 		},
 	},
