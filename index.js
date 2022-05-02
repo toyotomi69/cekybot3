@@ -274,7 +274,7 @@ const commands = {
 				client.say(channel, `agr3 agr4`)
 			}, 2000)
 		},
-	},
+	}, 
 	vyplata: {
 		fnc: async ({ client, channel }) => {
 			const price = await getCrypto('ETH')
