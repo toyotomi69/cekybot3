@@ -433,16 +433,13 @@ const commands = {
 		},
 		cooldown: 600,
 	},
-	deez: {
-		kdyuzodjede: {
+	kdyuzodjede: {
 		fnc: ({ client, channel }) => {
 			var countDownDate = new Date("May 10, 2022").getTime();
 			var now = new Date().getTime();
 			var timeleft = countDownDate - now;
 			var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
 			client.say(channel, `Ještě ${days} dní TrollDespair`)
-		},
-	},
 		},
 		cooldown: 600,
 	},
