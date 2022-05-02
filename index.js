@@ -427,6 +427,18 @@ const commands = {
 		},
 		cooldown: 600,
 	},
+	deez: {
+		fnc: ({ client, channel, user }) => {
+			client.say(channel, `deez nuts`)
+		},
+		cooldown: 600,
+	},
+	deez: {
+		fnc: ({ client, channel, user }) => {
+			client.say(channel, `deez nuts`)
+		},
+		cooldown: 600,
+	},
 }
 
 const messageCategoriesMatcher = {
