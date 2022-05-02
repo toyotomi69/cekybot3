@@ -441,7 +441,7 @@ const commands = {
 			var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
 			client.say(channel, `Ještě ${days} dní TrollDespair`)
 		},
-		cooldown: 600,
+		cooldown: 300,
 	},
 }
 
