@@ -294,11 +294,6 @@ const commands = {
 			client.say(channel, `Cena bitcoinu je $${price.toLocaleString()}`)
 		},
 	},
-	odkazzzzzzzzz: {
-		fnc: async ({ client, channel }) => {
-			client.say(channel, `https://www.kaufland.cz/`)
-		},
-	},
 	vkorunach: {
 		fnc: async ({ client, channel, rest }) => {
 			const amount = parseFloat(rest)
