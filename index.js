@@ -152,10 +152,6 @@ client.on('message', (channel, user, message, self) => {
 			var jmeno = message.split(' ')[1]
 			client.say(channel, `MLADY 🌹 ${jmeno}`)
 		}
-		if (message.includes('!mlady ')) {
-			var jmeno = message.split(' ')[1]
-			client.say(channel, `@${username} https://StreamElements.com/agraelus/tip`)
-		}
 		if (message == '!cojezaden') {
 			;(function () {
 				var days = [
@@ -298,7 +294,7 @@ const commands = {
 			client.say(channel, `Cena bitcoinu je $${price.toLocaleString()}`)
 		},
 	},
-	kaufland: {
+	odkazzzzzzzzz: {
 		fnc: async ({ client, channel }) => {
 			client.say(channel, `https://www.kaufland.cz/`)
 		},
