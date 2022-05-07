@@ -430,6 +430,12 @@ const commands = {
 		},
 		cooldown: 300,
 	},
+	samsung: {
+		fnc: ({ client, channel }) => {
+			client.say(channel, `žádný takový command není kkt`)
+		},
+		cooldown: 200,
+	},
 }
 
 const messageCategoriesMatcher = {
