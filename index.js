@@ -432,7 +432,7 @@ const commands = {
 	},
 	samsung: {
 		fnc: ({ client, channel }) => {
-			client.say(channel, `žádný takový command není kkt`)
+			client.say(channel, `žádný takový command není kkt `)
 		},
 		cooldown: 200,
 	},
