@@ -136,6 +136,9 @@ client.on('message', (channel, user, message, self) => {
 		if (message.includes('žalud')) {
 			client.say(channel, `@${username} zaludWeird`)
 		}
+		if (message.includes('!holkypiste')) {
+			client.say(channel, `@${username} ne :tf:`)
+		}
 		if (message.includes(' !ááá')) {
 			var jmeno = message.split(' ')[0]
 			client.say(
