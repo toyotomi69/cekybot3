@@ -442,6 +442,12 @@ const commands = {
 		},
 		cooldown: 200,
 	},
+	samsung: {
+		fnc: ({ client, channel }) => {
+			client.say(channel, `https://streamelements.com/agraelus/tip`)
+		},
+		cooldown: 200,
+	},
 }
 
 const messageCategoriesMatcher = {
