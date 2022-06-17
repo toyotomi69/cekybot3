@@ -442,7 +442,7 @@ const commands = {
 		},
 		cooldown: 200,
 	},
-	samsung: {
+	dono: {
 		fnc: ({ client, channel }) => {
 			client.say(channel, `https://streamelements.com/agraelus/tip`)
 		},
