@@ -433,15 +433,9 @@ const commands = {
 		},
 		cooldown: 600,
 	},
-	gramofon: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, `shorturl.at/azJQW`)
-		},
-		cooldown: 300,
-	},
 	samsung: {
 		fnc: ({ client, channel }) => {
-			client.say(channel, `žádný takový command není kkt `)
+			client.say(channel, `žádný takový command není kkt`)
 		},
 		cooldown: 200,
 	},
