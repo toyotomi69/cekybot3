@@ -1,1 +1,1 @@
-worker: npm starkaeofja
+worker: npm start
