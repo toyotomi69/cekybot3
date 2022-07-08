@@ -133,6 +133,9 @@ client.on('message', (channel, user, message, self) => {
 		if (message.includes(' žalud ')) {
 			client.say(channel, `@${username} zaludWeird`)
 		}
+		if (message.includes('agr')) {
+			client.say(channel, `agrE`)
+		}
 		if (message.includes('žalud')) {
 			client.say(channel, `@${username} zaludWeird`)
 		}
