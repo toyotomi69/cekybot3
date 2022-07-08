@@ -365,7 +365,7 @@ const commands = {
 	},
 	vtip: {
 		fnc: ({ client, channel }) => {
-			client.say(channel, getRandomItemFromArray(jokes))
+			client.say(channel, getRandomItemFromArray(jokes) + " :D")
 		},
 		cooldown: 300,
 	},
