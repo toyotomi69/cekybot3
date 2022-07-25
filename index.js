@@ -444,7 +444,7 @@ const commands = {
 	},
 	bryle: {
 		fnc: ({ client, channel }) => {
-			client.say(channel, `😎`)
+			client.say(channel, `B)`)
 		},
 		cooldown: 200,
 	},
