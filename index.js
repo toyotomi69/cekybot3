@@ -442,6 +442,12 @@ const commands = {
 		},
 		cooldown: 200,
 	},
+	bryle: {
+		fnc: ({ client, channel }) => {
+			client.say(channel, `😎`)
+		},
+		cooldown: 200,
+	},
 }
 
 const messageCategoriesMatcher = {
