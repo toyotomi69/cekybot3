@@ -122,6 +122,16 @@ client.on('message', (channel, user, message, self) => {
 				
 			}
 		}
+		if (username.toLocaleLowerCase() === 'agraelus') {
+			if (message == '[KUKORO] <<< YOU CAN MOVE! >>>') {
+				const num = nos()
+				client.say(channel, `!go`)
+			}
+			if (message == '[KUKORO] <<< STOP! >>>') {
+				const num = nos()
+				client.say(channel, `!stop`)
+			}
+		}
 
 		// Special interactions
 		if (message == 'zaludE') {
