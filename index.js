@@ -130,11 +130,14 @@ client.on('message', (channel, user, message, self) => {
 			}
 			if (message == '!rip') { 
 				ripy += 1
-				client.say(channel, `vojta má ${ripy} krát`)
+				client.say(channel, `vojta umřel ${ripy} krát`)
 			}
 			if (message == '!vynulovat') { 
-				let ripy = 0
+				ripy = 0
 				client.say(channel, `vynulováno`)
+			}
+			if (message == '!smrti') { 
+				client.say(channel, `vojta umřel ${ripy} krát`)
 			}
 		}
 		if (username.toLocaleLowerCase() === 'agraelus') {
