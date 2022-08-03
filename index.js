@@ -26,6 +26,8 @@ const dateFormatterOptions = {
 
 const cenaBenzinu = 46
 
+let ripy = 0
+
 // Last message
 const lastMessage = {}
 const watchedPeople = ['toyotomi_cz']
@@ -125,7 +127,14 @@ client.on('message', (channel, user, message, self) => {
 		if (username.toLocaleLowerCase() === 'toyotomi_cz') {
 			if (message == '!kukoro') { 
 				client.say(channel, `!Kukoro`)
-				
+			}
+			if (message == '!rip') { 
+				let ripy = ripy + 1
+				client.say(channel, `vojta má ${ripy} krát`)
+			}
+			if (message == '!vynulovat') { 
+				let ripy = 0
+				client.say(channel, `!Kukoro`)
 			}
 		}
 		if (username.toLocaleLowerCase() === 'agraelus') {
