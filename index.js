@@ -134,7 +134,7 @@ client.on('message', (channel, user, message, self) => {
 			}
 			if (message == '!vynulovat') { 
 				let ripy = 0
-				client.say(channel, `!Kukoro`)
+				client.say(channel, `vynulováno`)
 			}
 		}
 		if (username.toLocaleLowerCase() === 'agraelus') {
