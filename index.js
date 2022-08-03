@@ -474,6 +474,12 @@ const commands = {
 		},
 		cooldown: 200,
 	},
+	smrti: {
+		fnc: ({ client, channel }) => {
+			client.say(channel, `vojta umřel ${ripy} krát`)
+		},
+		cooldown: 200,
+	},
 }
 
 const messageCategoriesMatcher = {
