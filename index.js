@@ -26,7 +26,7 @@ const dateFormatterOptions = {
 
 const cenaBenzinu = 46
 
-let ripy = 0
+ripy = 0
 
 // Last message
 const lastMessage = {}
@@ -129,7 +129,7 @@ client.on('message', (channel, user, message, self) => {
 				client.say(channel, `!Kukoro`)
 			}
 			if (message == '!rip') { 
-				let ripy = ripy + 1
+				ripy += 1
 				client.say(channel, `vojta má ${ripy} krát`)
 			}
 			if (message == '!vynulovat') { 
