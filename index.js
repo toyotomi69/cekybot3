@@ -480,14 +480,14 @@ const commands = {
 		},
 		cooldown: 200,
 	},
-	koloběžka: {
+	electroworld: {
 		fnc: ({ client, channel }) => {
 			client.say(channel, `https://www.electroworld.cz/leqismart-by-huawei-hilink-d12-blk`)
 		},
 		cooldown: 100,
 	},
 }
-}
+
 
 const messageCategoriesMatcher = {
 	greeting: /(ahoj)|(čau)|(čus)|(zdar)|(nazdar)/,
