@@ -430,7 +430,7 @@ const commands = {
 			}
 			var datetimet = new Date().timeNow()
 			var res = datetimet.substring(0, 5)
-			client.say(channel, `Kristova noho, ono už je ${res}`)
+			client.say(channel, `Kristova noho, ono už je ${res} `)
 		},
 	},
 	google: {
