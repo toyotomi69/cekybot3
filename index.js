@@ -486,6 +486,12 @@ const commands = {
 		},
 		cooldown: 100,
 	},
+	podnikatel: {
+		fnc: ({ client, channel }) => {
+			client.say(channel, `https://www.podnikatel.cz/rejstrik/vojtech-fisar-03908356/`)
+		},
+		cooldown: 100,
+	},
 }
 
 
