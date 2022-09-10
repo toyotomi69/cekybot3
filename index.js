@@ -126,7 +126,7 @@ client.on('message', (channel, user, message, self) => {
 		}
 		if (username.toLocaleLowerCase() === 'toyotomi_cz') {
 			if (message == '!kukoro') { 
-				client.say(channel, `!Kukoro`)
+				client.say(channel, ``)
 			}
 			if (message == '!rip') { 
 				ripy += 1
