@@ -492,6 +492,12 @@ const commands = {
 		},
 		cooldown: 100,
 	},
+	gramofon: {
+		fnc: ({ client, channel }) => {
+			client.say(channel, `https://www.alza.cz/technics-sl-1210gr-cerny-d5508276.htm`)
+		},
+		cooldown: 100,
+	},
 }
 
 
