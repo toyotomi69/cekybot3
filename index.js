@@ -120,19 +120,16 @@ client.on('message', (channel, user, message, self) => {
 				
 		// 	}
 		// }
-		if (username.toLocaleLowerCase() === 'rasovatolerance') {
-			if (message == '!nos') {
-				const num = nos()
-				client.say(channel, `vojtův nos je dlouhý ${num}cm`)
-				
-			}
-		}
 		function seznam() {
 			if (message == '!seznam' || smazano == true) {
 				seznam = ""
 				if(smazano == true){
 					donatori = []
 					client.say(channel, `Seznam smazán`)
+				}
+				else if (prvni == true){
+					
+					client.say(channel, `ještě nikdo nic neposlal`)
 				}
 				else{
 				for (let k in donatori) {
@@ -170,9 +167,10 @@ client.on('message', (channel, user, message, self) => {
 		}
 
 
-		if (username.toLocaleLowerCase() === 'streamelements') {
+		if (username.toLocaleLowerCase() === 'cekybot2') {
 			if (message.includes('Díky bráško')) {
 				smazano = false
+				prvni = false
 
 				let zprava = message
 
