@@ -169,7 +169,7 @@ client.on('message', (channel, user, message, self) => {
 		}
 
 
-		if (username.toLocaleLowerCase() === 'cekybot2') {
+		if (username.toLocaleLowerCase() === 'streamelements') {
 			if (message.includes('Díky bráško')) {
 				smazano = false
 				prvni = false
