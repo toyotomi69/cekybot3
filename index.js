@@ -128,47 +128,64 @@ client.on('message', (channel, user, message, self) => {
 			}
 		}
 		function seznam() {
-			if (message == '!seznam') {
+			if (message == '!seznam' || smazano == true) {
 				seznam = ""
+				if(smazano == true){
+					donatori = []
+					client.say(channel, `Seznam smazán`)
+				}
+				else{
 				for (let k in donatori) {
 		
 					if (donatori[k].kolik >= 300){
 						seznam = seznam.concat(donatori[k].jmeno + ': ' + donatori[k].kolik + "Kč; " )
 					}
 				}
-				
 				client.say(channel, `Seznam- ${seznam}`)
-				
-				
+				}
 			}
 		}
 
+		function smazat() {
+			if (message == '!smazat') {
+				smazano = true
+				return true
+			}
+			else return false
+
+		}
+		
+
 		if (username.toLocaleLowerCase() === 'toyotomi_cz') {
 			seznam()
+			smazat()
 		}
 		if (username.toLocaleLowerCase() === 'agraelus') {
 			seznam()
+			smazat()
 		}
 		if (username.toLocaleLowerCase() === 'zasr_nycartman') {
 			seznam()
+			smazat()
 		}
 
 
 		if (username.toLocaleLowerCase() === 'streamelements') {
 			if (message.includes('Díky bráško')) {
+				smazano = false
+
 				let zprava = message
 
-				const myArray = zprava.split(" ");
+				const myArray = zprava.split(".");
 
-				let jmeno = myArray[0];
-				let kolik = myArray[4];
-
-				const myArray2 = kolik.split(".");
-
-				let kolikFinal = parseInt(myArray2[0]);
+				let zajimave = myArray[0];
+				const myArray2 = zajimave.split(" ");
+				const myArray3 = zajimave.split(" za");
+				let jmenoTady = myArray3[0];
+				let kolikFinal = parseInt(myArray2[myArray2.length-1]);
 
 				let dvakrat = false
-				var keyToFind = jmeno;
+				var keyToFind = jmenoTady;
 					for(var i in donatori){
 						if(donatori[i].jmeno == keyToFind){
 							dvakrat = true
@@ -179,7 +196,7 @@ client.on('message', (channel, user, message, self) => {
 					}
 				if(dvakrat == false){
 						donatori.push({
-							jmeno:   jmeno,
+							jmeno:   jmenoTady,
 							kolik: kolikFinal
 						});	
 				}
