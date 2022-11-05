@@ -28,6 +28,8 @@ const cenaBenzinu = 46
 
 donatori = []
 seznam = ""
+smazano = false
+prvni = true
 
 ripy = 0
 
