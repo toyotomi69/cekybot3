@@ -26,6 +26,9 @@ const dateFormatterOptions = {
 
 const cenaBenzinu = 46
 
+donatori = [];
+seznam = "";
+
 ripy = 0
 
 // Last message
@@ -82,41 +85,41 @@ client.on('message', (channel, user, message, self) => {
 			executeCommand(message, user, client, channel)
 		}
 
-		// StreamElements reaction
-		if (username.toLocaleLowerCase() === 'streamelements') {
-			if (message.includes(' dono ')) {
-				const regex = /([0-9])*\.([0-9])* Kč/
-				const amountMatch = regex.exec(message)
+		// // StreamElements reaction
+		// if (username.toLocaleLowerCase() === 'streamelements') {
+		// 	if (message.includes(' dono ')) {
+		// 		const regex = /([0-9])*\.([0-9])* Kč/
+		// 		const amountMatch = regex.exec(message)
 
-				if (!amountMatch || !amountMatch[0]) return
+		// 		if (!amountMatch || !amountMatch[0]) return
 
-				const amount = parseInt(amountMatch[0])
+		// 		const amount = parseInt(amountMatch[0])
 
-				if (!amount || isNaN(amount)) return
+		// 		if (!amount || isNaN(amount)) return
 
-				const amountInGas = amount / cenaBenzinu
+		// 		const amountInGas = amount / cenaBenzinu
 
-				let litr = ''
+		// 		let litr = ''
 
-				if (amountInGas === 1) litr = 'litr'
-				else if (amountInGas % 1 !== 0) litr = 'litru'
-				else if (amountInGas > 1 && amountInGas <= 4) litr = 'litry'
-				else litr = 'litrů'
+		// 		if (amountInGas === 1) litr = 'litr'
+		// 		else if (amountInGas % 1 !== 0) litr = 'litru'
+		// 		else if (amountInGas > 1 && amountInGas <= 4) litr = 'litry'
+		// 		else litr = 'litrů'
 				
-				const km = amountInGas/8*100
+		// 		const km = amountInGas/8*100
 
-				//client.say(
-				//	channel,
-				//	`Vojta právě dostal ${amountInGas.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${litr.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} benzínu :) dojel by tedy ${km.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}km`
-				//)
+		// 		//client.say(
+		// 		//	channel,
+		// 		//	`Vojta právě dostal ${amountInGas.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ${litr.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} benzínu :) dojel by tedy ${km.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}km`
+		// 		//)
 				
-				//client.say(
-				//	channel,
-				//	`Ráďa právě dostal ${amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}Kč na novou multiplu agrChamp`
-				//)
+		// 		//client.say(
+		// 		//	channel,
+		// 		//	`Ráďa právě dostal ${amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}Kč na novou multiplu agrChamp`
+		// 		//)
 				
-			}
-		}
+		// 	}
+		// }
 		if (username.toLocaleLowerCase() === 'rasovatolerance') {
 			if (message == '!nos') {
 				const num = nos()
@@ -124,92 +127,150 @@ client.on('message', (channel, user, message, self) => {
 				
 			}
 		}
+		function seznam() {
+			if (message == '!seznam') {
+				seznam = ""
+				for (let k in donatori) {
+		
+					if (donatori[k].kolik >= 200){
+						seznam = seznam.concat(donatori[k].jmeno + ': ' + donatori[k].kolik + "Kč; " )
+					}
+				}
+				
+				client.say(channel, `Seznam- ${seznam}`)
+				
+				
+			}
+		}
+
 		if (username.toLocaleLowerCase() === 'toyotomi_cz') {
-			if (message == '!kukoro') { 
-				client.say(channel, ``)
-			}
-			if (message == '!rip') { 
-				ripy += 1
-				client.say(channel, `vojta umřel ${ripy} krát`)
-			}
-			if (message == '!vynulovat') { 
-				ripy = 0
-				client.say(channel, `vynulováno`)
-			}
-			if (message == '!smrti') { 
-				client.say(channel, `vojta umřel ${ripy} krát`)
-			}
+			seznam()
 		}
 		if (username.toLocaleLowerCase() === 'agraelus') {
-			if (message == '[KUKORO] <<< YOU CAN MOVE! >>>') {
-				client.say(channel, `!go`)
-			}
-			if (message == '[KUKORO] <<< STOP! >>>') {
-				client.say(channel, `!stop`)
-			}
+			seznam()
+		}
+		if (username.toLocaleLowerCase() === 'Zasr_nycartman') {
+			seznam()
 		}
 
-		// Special interactions
-		if (message == 'zaludE') {
-			client.say(channel, `@${username} zaludE`)
-		}
-		if (message == `agr1 agr2`) {
-			client.say(channel, `agr3 agr4`)
-		}
-		if (message.includes(' žalud ')) {
-			client.say(channel, `@${username} zaludWeird`)
-		}
-		//if (message.includes('žalud')) {
-		//	client.say(channel, `@${username} zaludWeird`)
-		//}
-		if (message.includes('!holkypiste')) {
-			client.say(channel, `@${username} ne :tf:`)
-		}
-		if (message.includes('!pivo')) {
-			client.say(channel, `@${username} 🍺`)
-		}
-		if (message.includes(' !ááá')) {
-			var jmeno = message.split(' ')[0]
-			client.say(
-				channel,
-				`agrKUK ááá ty debílku ${jmeno} , nojo zmrde já tě vidim`
-			)
-		}
 
-		if (message.includes(' !mlady')) {
-			var jmeno = message.split(' ')[0]
-			client.say(channel, `MLADY 🌹 ${jmeno}`)
-		}
-		if (message.includes('!mlady ')) {
-			var jmeno = message.split(' ')[1]
-			client.say(channel, `MLADY 🌹 ${jmeno}`)
-		}
-		if (message == '!cojezaden') {
-			;(function () {
-				var days = [
-					'Neděle',
-					'Pondělí',
-					'Úterý',
-					'Středa',
-					'Čtvrtek',
-					'Pátek',
-					'Sobota',
-				]
+		if (username.toLocaleLowerCase() === 'toyotomi_cz') {
+			if (message.includes('Díky bráško')) {
+				let zprava = message
 
-				Date.prototype.getDayName = function () {
-					return days[this.getDay()]
+				const myArray = zprava.split(" ");
+
+				let jmeno = myArray[0];
+				let kolik = myArray[4];
+
+				const myArray2 = kolik.split(".");
+
+				let kolikFinal = parseInt(myArray2[0]);
+
+				let dvakrat = false
+				var keyToFind = jmeno;
+					for(var i in donatori){
+						if(donatori[i].jmeno == keyToFind){
+							dvakrat = true
+							donatori[i].kolik = parseInt(donatori[i].kolik) + parseInt(kolikFinal)
+							break;
+						}
+						
+					}
+				if(dvakrat == false){
+						donatori.push({
+							jmeno:   jmeno,
+							kolik: kolikFinal
+						});	
 				}
-			})()
-
-			var now = new Date()
-
-			var day = now.getDayName()
-			client.say(channel, `Dneska je ${day} :)`)
+			}
 		}
-		if (message.includes(' !gn')) {
-			var jmeno = message.split(' ')[0]
-			client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`)
-		}
+		// if (username.toLocaleLowerCase() === 'toyotomi_cz') {
+		// 	if (message == '!kukoro') { 
+		// 		client.say(channel, ``)
+		// 	}
+		// 	if (message == '!rip') { 
+		// 		ripy += 1
+		// 		client.say(channel, `vojta umřel ${ripy} krát`)
+		// 	}
+		// 	if (message == '!vynulovat') { 
+		// 		ripy = 0
+		// 		client.say(channel, `vynulováno`)
+		// 	}
+		// 	if (message == '!smrti') { 
+		// 		client.say(channel, `vojta umřel ${ripy} krát`)
+		// 	}
+		// }
+		// if (username.toLocaleLowerCase() === 'agraelus') {
+		// 	if (message == '[KUKORO] <<< YOU CAN MOVE! >>>') {
+		// 		client.say(channel, `!go`)
+		// 	}
+		// 	if (message == '[KUKORO] <<< STOP! >>>') {
+		// 		client.say(channel, `!stop`)
+		// 	}
+		// }
+
+		// // Special interactions
+		// if (message == 'zaludE') {
+		// 	client.say(channel, `@${username} zaludE`)
+		// }
+		// if (message == `agr1 agr2`) {
+		// 	client.say(channel, `agr3 agr4`)
+		// }
+		// if (message.includes(' žalud ')) {
+		// 	client.say(channel, `@${username} zaludWeird`)
+		// }
+		// //if (message.includes('žalud')) {
+		// //	client.say(channel, `@${username} zaludWeird`)
+		// //}
+		// if (message.includes('!holkypiste')) {
+		// 	client.say(channel, `@${username} ne :tf:`)
+		// }
+		// if (message.includes('!pivo')) {
+		// 	client.say(channel, `@${username} 🍺`)
+		// }
+		// if (message.includes(' !ááá')) {
+		// 	var jmeno = message.split(' ')[0]
+		// 	client.say(
+		// 		channel,
+		// 		`agrKUK ááá ty debílku ${jmeno} , nojo zmrde já tě vidim`
+		// 	)
+		// }
+
+		// if (message.includes(' !mlady')) {
+		// 	var jmeno = message.split(' ')[0]
+		// 	client.say(channel, `MLADY 🌹 ${jmeno}`)
+		// }
+		// if (message.includes('!mlady ')) {
+		// 	var jmeno = message.split(' ')[1]
+		// 	client.say(channel, `MLADY 🌹 ${jmeno}`)
+		// }
+		// if (message == '!cojezaden') {
+		// 	;(function () {
+		// 		var days = [
+		// 			'Neděle',
+		// 			'Pondělí',
+		// 			'Úterý',
+		// 			'Středa',
+		// 			'Čtvrtek',
+		// 			'Pátek',
+		// 			'Sobota',
+		// 		]
+
+		// 		Date.prototype.getDayName = function () {
+		// 			return days[this.getDay()]
+		// 		}
+		// 	})()
+
+		// 	var now = new Date()
+
+		// 	var day = now.getDayName()
+		// 	client.say(channel, `Dneska je ${day} :)`)
+		// }
+		// if (message.includes(' !gn')) {
+		// 	var jmeno = message.split(' ')[0]
+		// 	client.say(channel, `zaludBedge ${jmeno} Dobrou noc 🌃`)
+		// }
 	} catch (err) {
 		console.warn(err)
 	}
@@ -258,246 +319,246 @@ const jokes = [
 
 // base cooldown is 30 seconds, if specific needed add 'cooldown: <!SECONDS!>' to the command object
 const commands = {
-	zaludcommands: {
-		fnc: ({ client, channel }) => {
-			client.say(
-				channel,
-				`!zalud <tvrzení>, !hodnoceni, !madmonq, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas, !cojezaden, !kdoudelalcekybota, !btc, !eth, !miken, !vyplata :)`
-			)
-		},
-	},
-	zalud: {
-		fnc: ({ client, channel, rest }) => {
-			const num = rollDice()
-			client.say(channel, `Tvrzení, že ${rest}, je na ${num}% správné zaludE`)
-		},
-		cooldown: 600,
-	},
-	hodnoceni: {
-		fnc: ({ client, channel }) => {
-			const num = hraxd()
-			client.say(channel, `Tato hra je ${num}/10 zalud5Head`)
-		},
-	},
-	madmonq: {
-		fnc: ({ client, channel }) => {
-			client.say(
-				channel,
-				`zaludE Čau frajeři, tady Žalud 🌰, dneska jsem v lese 🌳🌳, a jsem teda zase zpátky, tentokrát s Madmonqama FeelsAmazingMan 💊 madmonq.gg/agraelus`
-			)
-		},
-	},
-	madmong: {
-		fnc: ({ client, channel }) => {
-			client.say(
-				channel,
-				`zaludE Čau frajeři, tady Žalud 🌰, dneska jsem v lese 🌳🌳, a jsem teda zase zpátky, tentokrát s Madmonqama FeelsAmazingMan 💊 madmonq.gg/agraelus`
-			)
-		},
-	},
-	velkyagrLULE: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, `agr1 agr2`)
-			setTimeout(() => {
-				client.say(channel, `agr3 agr4`)
-			}, 2000)
-		},
-	}, 
-	vyplata: {
-		fnc: async ({ client, channel }) => {
-			const price = await getCrypto('ETH')
-			if (price < 3500) {
-				var kolik= 3500-price
-				client.say(channel, `Do výplaty chybí $${kolik.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ETH`)
-			  } else {
-				client.say(channel, `dělej dělej, dej modům vejplatu, cena ETH je $${price.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ModLove @Agraelus`)
-			  }
-		},
-	},
-	eth: {
-		fnc: async ({ client, channel }) => {
-			const price = await getCrypto('ETH')
-			client.say(channel, `Cena etherea je $${price.toLocaleString()}`)
-		},
-	},
-	btc: {
-		fnc: async ({ client, channel }) => {
-			const price = await getCrypto('BTC')
-			client.say(channel, `Cena bitcoinu je $${price.toLocaleString()}`)
-		},
-	},
-	vkorunach: {
-		fnc: async ({ client, channel, rest }) => {
-			const amount = parseFloat(rest)
+	// zaludcommands: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(
+	// 			channel,
+	// 			`!zalud <tvrzení>, !hodnoceni, !madmonq, !velkyagrLULE, !gn <jmeno>, !mlady <jmeno>, !vtip, !cas, !cojezaden, !kdoudelalcekybota, !btc, !eth, !miken, !vyplata :)`
+	// 		)
+	// 	},
+	// },
+	// zalud: {
+	// 	fnc: ({ client, channel, rest }) => {
+	// 		const num = rollDice()
+	// 		client.say(channel, `Tvrzení, že ${rest}, je na ${num}% správné zaludE`)
+	// 	},
+	// 	cooldown: 600,
+	// },
+	// hodnoceni: {
+	// 	fnc: ({ client, channel }) => {
+	// 		const num = hraxd()
+	// 		client.say(channel, `Tato hra je ${num}/10 zalud5Head`)
+	// 	},
+	// },
+	// madmonq: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(
+	// 			channel,
+	// 			`zaludE Čau frajeři, tady Žalud 🌰, dneska jsem v lese 🌳🌳, a jsem teda zase zpátky, tentokrát s Madmonqama FeelsAmazingMan 💊 madmonq.gg/agraelus`
+	// 		)
+	// 	},
+	// },
+	// madmong: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(
+	// 			channel,
+	// 			`zaludE Čau frajeři, tady Žalud 🌰, dneska jsem v lese 🌳🌳, a jsem teda zase zpátky, tentokrát s Madmonqama FeelsAmazingMan 💊 madmonq.gg/agraelus`
+	// 		)
+	// 	},
+	// },
+	// velkyagrLULE: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(channel, `agr1 agr2`)
+	// 		setTimeout(() => {
+	// 			client.say(channel, `agr3 agr4`)
+	// 		}, 2000)
+	// 	},
+	// }, 
+	// vyplata: {
+	// 	fnc: async ({ client, channel }) => {
+	// 		const price = await getCrypto('ETH')
+	// 		if (price < 3500) {
+	// 			var kolik= 3500-price
+	// 			client.say(channel, `Do výplaty chybí $${kolik.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ETH`)
+	// 		  } else {
+	// 			client.say(channel, `dělej dělej, dej modům vejplatu, cena ETH je $${price.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} ModLove @Agraelus`)
+	// 		  }
+	// 	},
+	// },
+	// eth: {
+	// 	fnc: async ({ client, channel }) => {
+	// 		const price = await getCrypto('ETH')
+	// 		client.say(channel, `Cena etherea je $${price.toLocaleString()}`)
+	// 	},
+	// },
+	// btc: {
+	// 	fnc: async ({ client, channel }) => {
+	// 		const price = await getCrypto('BTC')
+	// 		client.say(channel, `Cena bitcoinu je $${price.toLocaleString()}`)
+	// 	},
+	// },
+	// vkorunach: {
+	// 	fnc: async ({ client, channel, rest }) => {
+	// 		const amount = parseFloat(rest)
 
-			if (isNaN(amount)) {
-				client.say(channel, `${rest} neni validní číslo zaludWeird`)
-				return
-			}
+	// 		if (isNaN(amount)) {
+	// 			client.say(channel, `${rest} neni validní číslo zaludWeird`)
+	// 			return
+	// 		}
 
-			const amountInCzk = await getEurToCzk(amount)
+	// 		const amountInCzk = await getEurToCzk(amount)
 
-			if (amountInCzk) {
-				client.say(channel, `${amount} eur je ${amountInCzk} korun`)
-			}
-		},
-	},
-	sub: {
-		fnc: async ({ client, channel }) => {
+	// 		if (amountInCzk) {
+	// 			client.say(channel, `${amount} eur je ${amountInCzk} korun`)
+	// 		}
+	// 	},
+	// },
+	// sub: {
+	// 	fnc: async ({ client, channel }) => {
 
-			const subInCzk = await getEurToCzk(3.99)
-			const VAT = subInCzk * 0.21
-			const noVAT = subInCzk * 0.79
+	// 		const subInCzk = await getEurToCzk(3.99)
+	// 		const VAT = subInCzk * 0.21
+	// 		const noVAT = subInCzk * 0.79
 
-			if (subInCzk) {
-				client.say(channel, `Sub dneska stojí ${subInCzk} Kč. Z toho je VAT ${VAT} Kč. Sub bez VAT stojí ${noVAT} Kč`)
-			}
-		},
-	},
-	benzin: {
-		fnc: async ({ client, channel, rest }) => {
-			const amount = parseFloat(rest)
+	// 		if (subInCzk) {
+	// 			client.say(channel, `Sub dneska stojí ${subInCzk} Kč. Z toho je VAT ${VAT} Kč. Sub bez VAT stojí ${noVAT} Kč`)
+	// 		}
+	// 	},
+	// },
+	// benzin: {
+	// 	fnc: async ({ client, channel, rest }) => {
+	// 		const amount = parseFloat(rest)
 
-			if (isNaN(amount)) {
-				client.say(channel, `${rest} neni validní číslo zaludWeird`)
-				return
-			}
+	// 		if (isNaN(amount)) {
+	// 			client.say(channel, `${rest} neni validní číslo zaludWeird`)
+	// 			return
+	// 		}
 
-			const amountInCzk = amount / cenaBenzinu
+	// 		const amountInCzk = amount / cenaBenzinu
 
-			if (amountInCzk) {
-				client.say(
-					channel,
-					`${amount}Kč je ${amountInCzk.toLocaleString()} litrů benzínu`
-				)
-			}
-		},
-	},
-	veurech: {
-		fnc: async ({ client, channel, rest }) => {
-			const amount = parseFloat(rest)
+	// 		if (amountInCzk) {
+	// 			client.say(
+	// 				channel,
+	// 				`${amount}Kč je ${amountInCzk.toLocaleString()} litrů benzínu`
+	// 			)
+	// 		}
+	// 	},
+	// },
+	// veurech: {
+	// 	fnc: async ({ client, channel, rest }) => {
+	// 		const amount = parseFloat(rest)
 
-			if (isNaN(amount)) {
-				client.say(channel, `${rest} neni validní číslo zaludWeird`)
-				return
-			}
+	// 		if (isNaN(amount)) {
+	// 			client.say(channel, `${rest} neni validní číslo zaludWeird`)
+	// 			return
+	// 		}
 
-			const amountInEur = await getCzkToEur(amount)
+	// 		const amountInEur = await getCzkToEur(amount)
 
-			if (amountInEur) {
-				client.say(channel, `${amount} korun je ${amountInEur} euro`)
-			}
-		},
-	},
-	vtip: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, getRandomItemFromArray(jokes) + " :D")
-		},
-		cooldown: 300,
-	},
-	cas: {
-		fnc: ({ client, channel }) => {
-			Date.prototype.timeNow = function () {
-				return (
-					(this.getHours() < 10 ? '0' : '') +
-					this.getHours() +
-					':' +
-					(this.getMinutes() < 10 ? '0' : '') +
-					this.getMinutes() +
-					':' +
-					(this.getSeconds() < 10 ? '0' : '') +
-					this.getSeconds()
-				)
-			}
-			var datetimet = new Date().timeNow()
-			var res = datetimet.substring(0, 5)
-			client.say(channel, `Kristova noho, ono už je ${res}`)
-		},
-	},
-	čas: {
-		fnc: ({ client, channel }) => {
-			Date.prototype.timeNow = function () {
-				return (
-					(this.getHours() < 10 ? '0' : '') +
-					this.getHours() +
-					':' +
-					(this.getMinutes() < 10 ? '0' : '') +
-					this.getMinutes() +
-					':' +
-					(this.getSeconds() < 10 ? '0' : '') +
-					this.getSeconds()
-				)
-			}
-			var datetimet = new Date().timeNow()
-			var res = datetimet.substring(0, 5)
-			client.say(channel, `Kristova noho, ono už je ${res} `)
-		},
-	},
-	google: {
-		fnc: ({ client, channel, user }) => {
-			var co = message.split(' ')[1]
-			let hledani = co.slice(7);
-			hledani = hledani.replace(/\s+/g, '+').toLowerCase()
-			let google = "google.com/serch?"
-			let google2 = google.concat(hledani)
-			client.say(channel, `${google2}`)
-		},
-		cooldown: 300,
-	},
-	miken: {
-		fnc: ({ client, channel, user }) => {
-			client.say(channel, `celejzivotfree.eu`)
-		},
-		cooldown: 600,
-	},
-	deez: {
-		fnc: ({ client, channel, user }) => {
-			client.say(channel, `deez nuts`)
-		},
-		cooldown: 600,
-	},
-	samsung: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, `žádný takový command není kkt`)
-		},
-		cooldown: 200,
-	},
-	dono: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, `https://streamelements.com/agraelus/tip`)
-		},
-		cooldown: 200,
-	},
-	bryle: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, `B)`)
-		},
-		cooldown: 200,
-	},
-	smrti: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, `vojta umřel ${ripy} krát`)
-		},
-		cooldown: 200,
-	},
-	electroworld: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, `https://www.electroworld.cz/leqismart-by-huawei-hilink-d12-blk`)
-		},
-		cooldown: 100,
-	},
-	podnikatel: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, `https://www.podnikatel.cz/rejstrik/vojtech-fisar-03908356/`)
-		},
-		cooldown: 100,
-	},
-	gramofon: {
-		fnc: ({ client, channel }) => {
-			client.say(channel, `https://www.alza.cz/technics-sl-1210gr-cerny-d5508276.htm`)
-		},
-		cooldown: 100,
-	},
+	// 		if (amountInEur) {
+	// 			client.say(channel, `${amount} korun je ${amountInEur} euro`)
+	// 		}
+	// 	},
+	// },
+	// vtip: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(channel, getRandomItemFromArray(jokes) + " :D")
+	// 	},
+	// 	cooldown: 300,
+	// },
+	// cas: {
+	// 	fnc: ({ client, channel }) => {
+	// 		Date.prototype.timeNow = function () {
+	// 			return (
+	// 				(this.getHours() < 10 ? '0' : '') +
+	// 				this.getHours() +
+	// 				':' +
+	// 				(this.getMinutes() < 10 ? '0' : '') +
+	// 				this.getMinutes() +
+	// 				':' +
+	// 				(this.getSeconds() < 10 ? '0' : '') +
+	// 				this.getSeconds()
+	// 			)
+	// 		}
+	// 		var datetimet = new Date().timeNow()
+	// 		var res = datetimet.substring(0, 5)
+	// 		client.say(channel, `Kristova noho, ono už je ${res}`)
+	// 	},
+	// },
+	// čas: {
+	// 	fnc: ({ client, channel }) => {
+	// 		Date.prototype.timeNow = function () {
+	// 			return (
+	// 				(this.getHours() < 10 ? '0' : '') +
+	// 				this.getHours() +
+	// 				':' +
+	// 				(this.getMinutes() < 10 ? '0' : '') +
+	// 				this.getMinutes() +
+	// 				':' +
+	// 				(this.getSeconds() < 10 ? '0' : '') +
+	// 				this.getSeconds()
+	// 			)
+	// 		}
+	// 		var datetimet = new Date().timeNow()
+	// 		var res = datetimet.substring(0, 5)
+	// 		client.say(channel, `Kristova noho, ono už je ${res} `)
+	// 	},
+	// },
+	// google: {
+	// 	fnc: ({ client, channel, user }) => {
+	// 		var co = message.split(' ')[1]
+	// 		let hledani = co.slice(7);
+	// 		hledani = hledani.replace(/\s+/g, '+').toLowerCase()
+	// 		let google = "google.com/serch?"
+	// 		let google2 = google.concat(hledani)
+	// 		client.say(channel, `${google2}`)
+	// 	},
+	// 	cooldown: 300,
+	// },
+	// miken: {
+	// 	fnc: ({ client, channel, user }) => {
+	// 		client.say(channel, `celejzivotfree.eu`)
+	// 	},
+	// 	cooldown: 600,
+	// },
+	// deez: {
+	// 	fnc: ({ client, channel, user }) => {
+	// 		client.say(channel, `deez nuts`)
+	// 	},
+	// 	cooldown: 600,
+	// },
+	// samsung: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(channel, `žádný takový command není kkt`)
+	// 	},
+	// 	cooldown: 200,
+	// },
+	// dono: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(channel, `https://streamelements.com/agraelus/tip`)
+	// 	},
+	// 	cooldown: 200,
+	// },
+	// bryle: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(channel, `B)`)
+	// 	},
+	// 	cooldown: 200,
+	// },
+	// smrti: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(channel, `vojta umřel ${ripy} krát`)
+	// 	},
+	// 	cooldown: 200,
+	// },
+	// electroworld: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(channel, `https://www.electroworld.cz/leqismart-by-huawei-hilink-d12-blk`)
+	// 	},
+	// 	cooldown: 100,
+	// },
+	// podnikatel: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(channel, `https://www.podnikatel.cz/rejstrik/vojtech-fisar-03908356/`)
+	// 	},
+	// 	cooldown: 100,
+	// },
+	// gramofon: {
+	// 	fnc: ({ client, channel }) => {
+	// 		client.say(channel, `https://www.alza.cz/technics-sl-1210gr-cerny-d5508276.html`)
+	// 	},
+	// 	cooldown: 100,
+	// },
 }
 
 
