@@ -132,7 +132,7 @@ client.on('message', (channel, user, message, self) => {
 				seznam = ""
 				for (let k in donatori) {
 		
-					if (donatori[k].kolik >= 200){
+					if (donatori[k].kolik >= 300){
 						seznam = seznam.concat(donatori[k].jmeno + ': ' + donatori[k].kolik + "Kč; " )
 					}
 				}
@@ -154,7 +154,7 @@ client.on('message', (channel, user, message, self) => {
 		}
 
 
-		if (username.toLocaleLowerCase() === 'toyotomi_cz') {
+		if (username.toLocaleLowerCase() === 'Streamelements') {
 			if (message.includes('Díky bráško')) {
 				let zprava = message
 
