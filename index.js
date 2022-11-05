@@ -154,7 +154,7 @@ client.on('message', (channel, user, message, self) => {
 		}
 
 
-		if (username.toLocaleLowerCase() === 'Streamelements') {
+		if (username.toLocaleLowerCase() === 'toyotomi_cz') {
 			if (message.includes('Díky bráško')) {
 				let zprava = message
 
