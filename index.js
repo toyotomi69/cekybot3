@@ -149,12 +149,12 @@ client.on('message', (channel, user, message, self) => {
 		if (username.toLocaleLowerCase() === 'agraelus') {
 			seznam()
 		}
-		if (username.toLocaleLowerCase() === 'Zasr_nycartman') {
+		if (username.toLocaleLowerCase() === 'zasr_nycartman') {
 			seznam()
 		}
 
 
-		if (username.toLocaleLowerCase() === 'toyotomi_cz') {
+		if (username.toLocaleLowerCase() === 'streamelements') {
 			if (message.includes('Díky bráško')) {
 				let zprava = message
 
