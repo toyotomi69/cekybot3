@@ -26,8 +26,8 @@ const dateFormatterOptions = {
 
 const cenaBenzinu = 46
 
-donatori = [];
-seznam = "";
+donatori = []
+seznam = ""
 
 ripy = 0
 
@@ -53,9 +53,9 @@ const dateFormatter = new Intl.DateTimeFormat([], dateFormatterOptions)
 //   client.say(channel, `${username} nojo zmrde už jsem tady!`);
 //});
 
-client.on('subscription', function (channel, username, methods) {
-	client.say(channel, username + ' kristova noho, dík za sub <3')
-})
+//client.on('subscription', function (channel, username, methods) {
+//	client.say(channel, username + ' kristova noho, dík za sub <3')
+//})
 //client.on('resub', function (channel, username, methods) {
 //	client.say(channel, username + ' ty kráso, tolik měsíců zaludW')
 //})
