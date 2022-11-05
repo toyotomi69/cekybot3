@@ -381,12 +381,12 @@ const commands = {
 	// 		client.say(channel, `Cena etherea je $${price.toLocaleString()}`)
 	// 	},
 	// },
-	// btc: {
-	// 	fnc: async ({ client, channel }) => {
-	// 		const price = await getCrypto('BTC')
-	// 		client.say(channel, `Cena bitcoinu je $${price.toLocaleString()}`)
-	// 	},
-	// },
+	btc: {
+	 	fnc: async ({ client, channel }) => {
+	 		const price = await getCrypto('BTC')
+	 		client.say(channel, `Cena bitcoinu je $${price.toLocaleString()}`)
+	 	},
+	 },
 	// vkorunach: {
 	// 	fnc: async ({ client, channel, rest }) => {
 	// 		const amount = parseFloat(rest)
