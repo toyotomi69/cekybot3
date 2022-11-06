@@ -125,15 +125,16 @@ client.on('message', (channel, user, message, self) => {
 		function seznam() {
 			if (message == '!seznam' || smazano == true) {
 				seznam = ""
-				if(smazano == true){
+				if(smazano == true && message == '!seznam'){
 					donatori = []
-					client.say(channel, `Seznam smazán`)
+					client.say(channel, `Seznam byl smazán`)
+					smazano = false
 				}
 				else if (prvni == true){
 					
 					client.say(channel, `ještě nikdo nic neposlal`)
 				}
-				else{
+				else if(message == '!seznam'){
 				for (let k in donatori) {
 		
 					if (donatori[k].kolik >= 300){
@@ -169,7 +170,7 @@ client.on('message', (channel, user, message, self) => {
 		}
 
 
-		if (username.toLocaleLowerCase() === 'streamelements') {
+		if (username.toLocaleLowerCase() === 'cekybot2') {
 			if (message.includes('Díky bráško')) {
 				smazano = false
 				prvni = false
