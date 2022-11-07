@@ -179,7 +179,7 @@ client.on('message', (channel, user, message, self) => {
 
 				let zajimave = myArray[0];
 				const myArray2 = zajimave.split(" ");
-				const myArray3 = zajimave.split(" za");
+				const myArray3 = zajimave.split(" ");
 				let jmenoTady = myArray3[0];
 				let kolikFinal = parseInt(myArray2[myArray2.length-1]);
 
