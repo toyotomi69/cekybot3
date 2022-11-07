@@ -133,8 +133,8 @@ client.on('message', (channel, user, message, self) => {
 					
 					client.say(channel, `ještě nikdo nic neposlal`)
 				}
-				else if(message == '!seznam'){
-				for (let k in donatori) {
+				else if(message == '!seznam' && prvni == false){
+				for (let k in donatori){
 		
 					if (donatori[k].kolik >= 300){
 						seznam = seznam.concat(donatori[k].jmeno + ': ' + donatori[k].kolik + "Kč; " )
@@ -173,7 +173,6 @@ client.on('message', (channel, user, message, self) => {
 			if (message.includes('Díky bráško')) {
 				smazano = false
 				prvni = false
-
 				let zprava = message
 
 				const myArray = zprava.split(".");
