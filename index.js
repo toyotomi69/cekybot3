@@ -170,7 +170,7 @@ client.on('message', (channel, user, message, self) => {
 
 
 		if (username.toLocaleLowerCase() === 'streamelements') {
-			if (message.includes('Díky bráško')) {
+			if (message.includes('Jsi v točce')) {
 				smazano = false
 				prvni = false
 				let zprava = message
