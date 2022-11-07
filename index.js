@@ -8,7 +8,7 @@ const tmiOptions = {
 		reconnect: true,
 		secure: true,
 	},
-	identity: {
+	identity: { 
 		username,
 		password,
 	}, 
@@ -30,7 +30,6 @@ donatori = []
 seznam = ""
 smazano = false
 prvni = true
-
 ripy = 0
 
 // Last message
