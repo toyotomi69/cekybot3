@@ -137,7 +137,7 @@ client.on('message', (channel, user, message, self) => {
 				for (let k in donatori){
 		
 					if (donatori[k].kolik >= 300){
-						seznam = seznam.concat(donatori[k].jmeno + ': ' + donatori[k].kolik + "Kč; " )
+						seznam = seznam.concat(donatori[k].jmeno/* + ': ' + donatori[k].kolik*/ + "; " )
 					}
 				}
 				client.say(channel, `Seznam- ${seznam}`)
