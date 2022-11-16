@@ -159,6 +159,10 @@ client.on('message', (channel, user, message, self) => {
 			seznam()
 			smazat()
 		}
+		if (username.toLocaleLowerCase() === 'lobotomi_sk') {
+			seznam()
+			smazat()
+		}
 		if (username.toLocaleLowerCase() === 'agraelus') {
 			seznam()
 			smazat()
